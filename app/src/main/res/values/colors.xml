@@ -2,4 +2,24 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--    App background -->
+    <color name="background">#F5FAFD</color>
+
+<!--    Card background -->
+    <color name="widgets">#82AAE3</color>
+
+<!--    Accent colour -->
+    <color name="accent">#212529</color>
+
+<!--    Activity headings -->
+    <color name="primary">#EFEFEF</color>
+
+<!--    Main content Primary headings -->
+    <color name="pMainContentHeading">#343A40</color>
+
+<!--    Main content Secondary headings-->
+    <color name="sMainContentHeading">#707070</color>
+
+
 </resources>
