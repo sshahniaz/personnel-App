@@ -16,7 +16,7 @@ import java.util.Calendar;
 public class DashBoard extends AppCompatActivity {
 
     Button clockBtn;
-    TextView datetime;
+    TextView datetime, datetime2, shiftStart, shiftEnd;
     boolean clockedIn = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,10 @@ public class DashBoard extends AppCompatActivity {
 
 //      set variables for clock in/out function
         datetime = (TextView) findViewById(R.id.dateTime);
+        datetime2 = (TextView) findViewById(R.id.dateTime2);
         clockBtn = (Button) findViewById(R.id.clockBtn);
+        shiftStart = (TextView) findViewById(R.id.shiftStart);
+        shiftEnd = (TextView) findViewById(R.id.shiftEnd);
 
 //        create on click method
         clockBtn.setOnClickListener(new View.OnClickListener() {
@@ -41,12 +44,17 @@ public class DashBoard extends AppCompatActivity {
                 Calendar calendar = Calendar.getInstance();
 
 //                set date format
-                SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
+                SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy ");
 
 //                declare string variable
                 String dateString = date.format(calendar.getTime());
+                String timeString = time.format(calendar.getTime());
 
-                datetime.setText(dateString);
+//                Testing date object
+                datetime.setText(timeString);
+                datetime2.setText(dateString);
+
 
 //                call toggle method to switch between clocked in/out state
                 toggleClockStatus();
