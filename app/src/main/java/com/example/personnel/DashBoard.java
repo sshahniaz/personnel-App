@@ -32,13 +32,23 @@ public class DashBoard extends AppCompatActivity {
         datetime = (TextView) findViewById(R.id.dateTime);
         clockBtn = (Button) findViewById(R.id.clockBtn);
 
+//        create on click method
         clockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                create date object
                 Calendar calendar = Calendar.getInstance();
+
+//                set date format
                 SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
+//                declare string variable
                 String dateString = date.format(calendar.getTime());
+
                 datetime.setText(dateString);
+
+//                call toggle method to switch between clocked in/out state
                 toggleClockStatus();
             }
         });
