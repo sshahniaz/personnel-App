@@ -5,14 +5,49 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class DashBoard extends AppCompatActivity {
 
+    Button clockBtn;
+    TextView datetime;
+    boolean clockedIn = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
+
+
+//      *******  CLOCK IN AND CLOCK OUT FUNCTION *******
+
+
+
+//      set variables for clock in/out function
+        datetime = (TextView) findViewById(R.id.dateTime);
+        clockBtn = (Button) findViewById(R.id.clockBtn);
+
+        clockBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                String dateString = date.format(calendar.getTime());
+                datetime.setText(dateString);
+                toggleClockStatus();
+            }
+        });
+
+
+
+//        ******* DATABASE FUNCTIONS *******
+
+
 
 //        create object from db helper class
         DBHelper objDBHelper = new DBHelper(this);
@@ -36,6 +71,17 @@ public class DashBoard extends AppCompatActivity {
             Toast.makeText(DashBoard.this, "Values not inserted", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(DashBoard.this, "Values inserted on row" + result, Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+//    clock toggle method change button text
+    public void toggleClockStatus() {
+        clockedIn = !clockedIn;
+        if (clockedIn) {
+            clockBtn.setText("Clock in");
+        } else {
+            clockBtn.setText("Clock out");
         }
     }
 }
