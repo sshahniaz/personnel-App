@@ -17,7 +17,7 @@
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="2"
-        android:text="Clock in"
+        android:text="Clock out"
         android:textSize="25sp"
         app:cornerRadius="8sp" />
 
