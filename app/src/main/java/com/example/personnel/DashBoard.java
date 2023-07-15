@@ -10,14 +10,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class DashBoard extends AppCompatActivity {
 
     Button clockBtn;
     TextView datetime, datetime2, shiftStart, shiftEnd;
     boolean clockedIn = true;
+
+    String dateString, timeString;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +48,13 @@ public class DashBoard extends AppCompatActivity {
                 Calendar calendar = Calendar.getInstance();
 
 //                set date format
-                SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
+                SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss ");
                 SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy ");
 
 //                declare string variable
-                String dateString = date.format(calendar.getTime());
-                String timeString = time.format(calendar.getTime());
+
+                dateString = date.format(calendar.getTime());
+                timeString = time.format(calendar.getTime());
 
 //                Testing date object
                 datetime.setText(timeString);
@@ -77,20 +82,20 @@ public class DashBoard extends AppCompatActivity {
         ContentValues values = new ContentValues();
 
 //      test values to insert into database
-        values.put(objDBHelper.date, "11/07/2023");
+        values.put(objDBHelper.date, dateString);
         values.put(objDBHelper.clockInTime, "09:00");
         values.put(objDBHelper.clockOutTime, "17:00");
 
 //        insert to database
-        long result = db.insert("attendance", null, values);
-
-//        feedback on status
-        if(result ==-1) {
-            Toast.makeText(DashBoard.this, "Values not inserted", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(DashBoard.this, "Values inserted on row" + result, Toast.LENGTH_LONG).show();
-        }
-
+//        long result = db.insert("attendance", null, values);
+//
+////        feedback on status
+//        if(result ==-1) {
+//            Toast.makeText(DashBoard.this, "Values not inserted", Toast.LENGTH_LONG).show();
+//        } else {
+//            Toast.makeText(DashBoard.this, "Values inserted on row" + result, Toast.LENGTH_LONG).show();
+//        }
+//
     }
 
 //    clock toggle method change button text
