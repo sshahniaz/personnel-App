@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +21,7 @@ public class DashBoard extends AppCompatActivity {
     Button clockBtn;
     TextView datetime, datetime2, shiftStart, shiftEnd;
     boolean clockedIn = true;
-
+    FrameLayout displayBtn;
     String dateString, timeString;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +36,10 @@ public class DashBoard extends AppCompatActivity {
 //      set variables for clock in/out function
         datetime = (TextView) findViewById(R.id.dateTime);
         datetime2 = (TextView) findViewById(R.id.dateTime2);
-        clockBtn = (Button) findViewById(R.id.clockBtn);
+//        clockBtn = (Button) findViewById(R.id.clockBtn);
         shiftStart = (TextView) findViewById(R.id.shiftStart);
         shiftEnd = (TextView) findViewById(R.id.shiftEnd);
-
+        displayBtn=(FrameLayout) findViewById(R.id.buttonFragment);
 //        create on click method
         clockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
