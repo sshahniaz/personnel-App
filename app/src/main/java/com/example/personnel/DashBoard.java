@@ -10,12 +10,15 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
+import com.example.personnel.Fragments.clockInFragment;
+import com.example.personnel.Fragments.clockOutFragment;
 public class DashBoard extends AppCompatActivity {
 
     Button clockBtn;
@@ -40,32 +43,40 @@ public class DashBoard extends AppCompatActivity {
         shiftStart = (TextView) findViewById(R.id.shiftStart);
         shiftEnd = (TextView) findViewById(R.id.shiftEnd);
         displayBtn=(FrameLayout) findViewById(R.id.buttonFragment);
-//        create on click method
-        clockBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-//                create date object
-                Calendar calendar = Calendar.getInstance();
-
-//                set date format
-                SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss ");
-                SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy ");
-
-//                declare string variable
-
-                dateString = date.format(calendar.getTime());
-                timeString = time.format(calendar.getTime());
-
-//                Testing date object
-                datetime.setText(timeString);
-                datetime2.setText(dateString);
 
 
-//                call toggle method to switch between clocked in/out state
-                toggleClockStatus();
-            }
-        });
+//        create fragment object
+
+        clockInFragment clockInFragmentObj = new clockInFragment();
+        FragmentTransaction defaultTransaction = getSupportFragmentManager().beginTransaction();
+defaultTransaction.replace(R.id.buttonFragment, clockInFragmentObj);
+defaultTransaction.commit();
+        //        create on click method
+//        clockBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+////                create date object
+//                Calendar calendar = Calendar.getInstance();
+//
+////                set date format
+//                SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss ");
+//                SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy ");
+//
+////                declare string variable
+//
+//                dateString = date.format(calendar.getTime());
+//                timeString = time.format(calendar.getTime());
+//
+////                Testing date object
+//                datetime.setText(timeString);
+//                datetime2.setText(dateString);
+//
+//
+////                call toggle method to switch between clocked in/out state
+//                toggleClockStatus();
+//            }
+//        });
 
 
 
