@@ -105,6 +105,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public final String clockInTime = "clock_in_time";
     public final String clockOutTime = "clock_out_time";
 
+//    method to insert clock-in values to database
+
+
+
     public final String createAttendanceTable = "CREATE TABLE " + attendanceTable + " ("
             + attendanceId + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + employeeIdFK + " INTEGER,"

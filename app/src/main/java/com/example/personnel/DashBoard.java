@@ -51,33 +51,6 @@ public class DashBoard extends AppCompatActivity {
         FragmentTransaction defaultTransaction = getSupportFragmentManager().beginTransaction();
 defaultTransaction.replace(R.id.buttonFragment, clockInFragmentObj);
 defaultTransaction.commit();
-        //        create on click method
-//        clockBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-////                create date object
-//                Calendar calendar = Calendar.getInstance();
-//
-////                set date format
-//                SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss ");
-//                SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy ");
-//
-////                declare string variable
-//
-//                dateString = date.format(calendar.getTime());
-//                timeString = time.format(calendar.getTime());
-//
-////                Testing date object
-//                datetime.setText(timeString);
-//                datetime2.setText(dateString);
-//
-//
-////                call toggle method to switch between clocked in/out state
-//                toggleClockStatus();
-//            }
-//        });
-
 
 
 //        ******* DATABASE FUNCTIONS *******
