@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.personnel.DBHelper;
 import com.example.personnel.R;
@@ -61,7 +62,13 @@ String dateString, timeString;
 
                 DBHelper dbHelper = new DBHelper(getContext());
 
-//                insert data to table using method
+//                insert data to table using addClockInData method
+
+                boolean success = dbHelper.addClockInData(objClockIn);
+
+//                test clock in model params and success of method
+
+                Toast.makeText(getContext(), objClockIn.toString() + "result= " + success, Toast.LENGTH_LONG).show();
 
 //            Create object of clock out fragment, create transaction, replace view and commit
 
