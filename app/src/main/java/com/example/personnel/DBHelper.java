@@ -1,5 +1,6 @@
 package com.example.personnel;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -176,5 +177,35 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+attendanceTable+";");
         db.execSQL("DROP TABLE IF EXISTS "+messagesTable+";");
         onCreate(db);
+    }
+
+//    Method to insert clock-in values to database
+
+    public  boolean addClockInData(clockInModel clockIn) {
+
+//        create db object
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+//        create content values object
+
+        ContentValues inValues = new ContentValues();
+
+//        pass values to content values object from clock-in model class
+
+        inValues.put(date, clockIn.getDate());
+        inValues.put(clockInTime, clockIn.getClockInTime());
+
+//        insert values to attendance table
+        long insert = db.insert(attendanceTable, null, inValues);
+
+//        test for success
+        if (insert==-1) {
+            return false;
+        } else {
+
+            return true;
+        }
+
     }
 }
