@@ -106,9 +106,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public final String clockInTime = "clock_in_time";
     public final String clockOutTime = "clock_out_time";
 
-//    method to insert clock-in values to database
-
-
 
     public final String createAttendanceTable = "CREATE TABLE " + attendanceTable + " ("
             + attendanceId + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -179,7 +176,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-//    Method to insert clock-in values to database
+//    Method-- to insert clock-in values to attendance table
 
     public  boolean addClockInData(clockInModel clockIn) {
 
@@ -207,5 +204,18 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
 
+    }
+
+    //        method-- update clock-out time in attendance table
+
+    public boolean updateClockOutTime(clockOutModel clockOut) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues outValues = new ContentValues();
+
+        outValues.put(clockOutTime, clockOut.getClockOutTime());
+
+        int result = db.update(attendanceTable, outValues, "date = ?", new String[]{clockOut.getDate()});
+
+        return result > 0;
     }
 }
