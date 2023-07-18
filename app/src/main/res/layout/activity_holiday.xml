@@ -6,4 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".Holiday">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/holidayTopCard"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:elevation="10dp">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/holidayBottomCard"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:layout_below="@+id/holidayTopCard"
+            android:layout_marginTop="-50dp"
+            android:elevation="11dp">
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
