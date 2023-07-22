@@ -1,4 +1,4 @@
-package com.example.personnel.Fragments;
+package com.example.personnel.DashboardFragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.personnel.DBHelper;
 import com.example.personnel.R;
-import com.example.personnel.clockOutModel;
+import com.example.personnel.DashboardModelClasses.clockOutModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

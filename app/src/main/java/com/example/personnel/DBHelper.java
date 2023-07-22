@@ -5,7 +5,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
+import com.example.personnel.DashboardModelClasses.clockInModel;
+import com.example.personnel.DashboardModelClasses.clockOutModel;
 
 public class DBHelper extends SQLiteOpenHelper {
 

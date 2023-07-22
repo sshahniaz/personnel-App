@@ -1,4 +1,4 @@
-package com.example.personnel;
+package com.example.personnel.DashboardModelClasses;
 
 public class clockInModel {
 
