@@ -22,19 +22,24 @@
             android:layout_width="match_parent"
             android:layout_height="270dp"
             android:elevation="10dp"
-            android:background="@drawable/hero">
+            android:background="@drawable/hero"
+            >
             <!--  Scroll View   -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+
+                >
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                    <ListView
+                    <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/holiday_cards_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         />
                 </LinearLayout>
             </HorizontalScrollView>

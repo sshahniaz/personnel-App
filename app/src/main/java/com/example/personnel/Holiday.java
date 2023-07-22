@@ -1,28 +1,53 @@
 package com.example.personnel;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.personnel.holidayFiles.HolidayCardDataModel;
+import com.example.personnel.holidayFiles.HolidayListAdapter;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class Holiday extends AppCompatActivity {
-
+    RecyclerView holidayCardList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_holiday);
 
         //Display Holidays
+        holidayCardList = findViewById(R.id.holiday_cards_list);
+        DBHelper holDB = new DBHelper(this);
+        SQLiteDatabase listDB = holDB.getReadableDatabase();
+        List<HolidayCardDataModel> dataList = new ArrayList<>();
 
+        Cursor cursor = listDB.rawQuery("select * from "+holDB.leaveTable+" where "+holDB.employeeId+" = ?",new String[]{"1"});
+        if(cursor.moveToLast()){
+            do{
+                dataList.add(new HolidayCardDataModel(cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                cursor.getInt(6)));
+            }while(cursor.moveToPrevious());
+        }
+        listDB.close();
 
+        HolidayListAdapter adapter = new HolidayListAdapter(this,dataList);
 
-
+        holidayCardList.setAdapter(adapter);
+        holidayCardList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         //Book Holiday
         DBHelper leaveDB = new DBHelper(this);
         SQLiteDatabase db = leaveDB.getWritableDatabase();
@@ -52,7 +77,7 @@ public class Holiday extends AppCompatActivity {
 //
 //        }
 
-
+        db.close();
 
 
 
