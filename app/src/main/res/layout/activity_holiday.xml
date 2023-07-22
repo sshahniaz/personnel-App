@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <ListView
-                        android:id="@+id/holidayCards"
+                        android:id="@+id/holiday_cards_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
