@@ -20,6 +20,9 @@
 
 <!--    Main content Secondary headings-->
     <color name="sMainContentHeading">#707070</color>
+<!--    Holiday Cards Color-->
+    <color name="holidayCardRejected">#e38282</color>
+    <color name="holidayBtnGroupBG">#ced4da</color>
 
 
 </resources>

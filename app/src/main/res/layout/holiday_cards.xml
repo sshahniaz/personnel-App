@@ -3,8 +3,9 @@
     android:layout_width="100dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/cards"
-    android:elevation="2dp"
+
+    android:backgroundTint="@color/background"
+    app:cardElevation="10dp"
     app:cardCornerRadius="8dp"
     android:layout_margin="2dp">
 
@@ -20,25 +21,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="8"/>
+            android:text="8"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/hanken_grotesk"/>
         <TextView
             android:id="@+id/holiday_cards_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="October"/>
+            android:text="Oct"
+            android:textSize="14sp"
+            android:fontFamily="@font/hanken_grotesk"/>
         <TextView
             android:id="@+id/holiday_cards_holiday_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Holiday"/>
+            android:text="Holiday"
+            android:textSize="11sp"
+            android:fontFamily="@font/hanken_grotesk"/>
         <TextView
             android:id="@+id/holiday_cards_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Pending"
+            android:textSize="16sp"
+            android:fontFamily="@font/hanken_grotesk"
             />
     </LinearLayout>
 

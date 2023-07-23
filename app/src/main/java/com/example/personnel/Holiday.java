@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.personnel.holidayFiles.HolidayCardDataModel;
 import com.example.personnel.holidayFiles.HolidayListAdapter;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
 import java.text.ParseException;
@@ -191,16 +192,22 @@ public class Holiday extends AppCompatActivity {
         holidayBtnGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
             @Override
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
+
                 if(isChecked){
                     if(checkedId==R.id.holiday_btn_holiday){
                         selLeaveType = "Holiday";
+
                     }
                     if (checkedId==R.id.holiday_btn_inlieu) {
                         selLeaveType = "Lieu";
+
                     }
                     if(checkedId==R.id.holiday_btn_sick){
                         selLeaveType = "Sick";
+
                     }
+
+
                 }
             }
         });
