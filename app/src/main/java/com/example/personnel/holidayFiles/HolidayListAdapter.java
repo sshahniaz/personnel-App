@@ -1,6 +1,7 @@
 package com.example.personnel.holidayFiles;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,10 +75,13 @@ public class HolidayListAdapter extends RecyclerView.Adapter<HolidayListAdapter.
         //leave status changed 0 == Pending, -1 == rejected, 1 == approved.
         if(holidayCardDataModel.getStatus() == 0){
            holder.status.setText("Pending");
+           holder.status.setTextColor(Color.parseColor("#707070"));
         } else if (holidayCardDataModel.getStatus() == 1) {
            holder.status.setText("Approved");
+            holder.status.setTextColor(Color.parseColor("#82AAE3"));
         }else {
            holder.status.setText("Rejected");
+            holder.status.setTextColor(Color.parseColor("#e38282"));
         }
 
 
