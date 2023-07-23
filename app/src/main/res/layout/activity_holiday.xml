@@ -58,58 +58,75 @@
             android:backgroundTint="@color/background"
             android:gravity="center_horizontal">
 
-            <com.google.android.material.button.MaterialButtonToggleGroup
-                android:id="@+id/holiday_btn_group"
-                android:layout_width="match_parent"
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
                 android:layout_marginTop="40dp"
-                app:selectionRequired="true"
-                app:singleSelection="true"
+                android:id="@+id/holiday_btnGrp_container"
+                app:cardCornerRadius="10dp"
+                android:layout_marginLeft="25dp"
                 >
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/holiday_btn_holiday"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="120dp"
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/holiday_btn_group"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Holiday" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="Sick"
-                    android:id="@+id/holiday_btn_sick"
-                    style="?attr/materialButtonOutlinedStyle"/>
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="In Lieu"
-                    android:id="@+id/holiday_btn_inlieu"
-                    style="?attr/materialButtonOutlinedStyle"/>
 
-            </com.google.android.material.button.MaterialButtonToggleGroup>
+                    app:selectionRequired="true"
+                    app:singleSelection="true"
+
+                    >
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/holiday_btn_holiday"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="Holiday" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="Sick"
+                        android:id="@+id/holiday_btn_sick"
+                        style="?attr/materialButtonOutlinedStyle"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="In Lieu"
+                        android:id="@+id/holiday_btn_inlieu"
+                        style="?attr/materialButtonOutlinedStyle"/>
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            </androidx.cardview.widget.CardView>
+
+
             <!--   Date Holder         -->
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/dateContainer"
-                android:layout_below="@+id/holiday_btn_group"
+                android:layout_below="@+id/holiday_btnGrp_container"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="3"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="80dp"
+                >
                 <!-- Date Holder Start Date  -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/datePick_start_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="5dp"
-                    android:elevation="20dp"
+                    app:cardElevation="12dp"
                     android:layout_weight="1"
                     >
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:weightSum="2">
                         <TextView
@@ -119,7 +136,8 @@
                             android:text="22"
                             android:textSize="30dp"
                             android:layout_weight="1"
-                            android:padding="2dp"/>
+                            android:padding="2dp"
+                            android:gravity="center"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -128,14 +146,15 @@
                             android:layout_weight="1"
                             android:layout_marginLeft="3dp"
                             android:background="@color/accent"
-                            android:padding="2dp">
+                            android:padding="2dp"
+                            android:gravity="center">
 
                             <TextView
                                 android:id="@+id/date_start_month"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Jan"
-                                android:textSize="18dp"
+                                android:textSize="15dp"
                                 android:textColor="@color/primary"
                                 />
 
@@ -144,30 +163,87 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="2023"
-                                android:textSize="12dp"
+                                android:textSize="19dp"
                                 android:textColor="@color/primary"
                                 />
 
                         </LinearLayout>
 
 
+                    </LinearLayout>
+
+
+
+
+                </androidx.cardview.widget.CardView>
+            <!--  Text holder "To"              -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="To"
+                    android:textSize="30dp"
+                    android:gravity="center"
+                    android:elevation="12dp"/>
+
+
+                <!--   End Date Holder              -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/datePick_end_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="20dp"
+                   >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+                    <TextView
+                        android:id="@+id/date_end_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="22"
+                        android:textSize="30dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        android:gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="3dp"
+                        android:background="@color/accent"
+                        android:padding="2dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/date_end_month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jan"
+                            android:textSize="15dp"
+                            android:textColor="@color/primary"
+                            />
+
+                        <TextView
+                            android:id="@+id/date_end_year"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2023"
+                            android:textSize="19dp"
+                            android:textColor="@color/primary"
+
+                            />
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
-                <!--   End Date Holder              -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
@@ -177,12 +253,25 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/dateContainer"
                 android:orientation="vertical"
+                android:layout_centerHorizontal="true"
                 >
-                <EditText
-                    android:layout_width="match_parent"
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:hint="Reason for leave"
-                    android:backgroundTint="@color/accent"/>
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="10sp"
+                    app:cardElevation="20dp"
+                    >
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Reason for leave"
+                        android:backgroundTint="@color/accent"/>
+
+                </androidx.cardview.widget.CardView>
+
+
 
                 <Button
                     android:layout_gravity="center_horizontal"
