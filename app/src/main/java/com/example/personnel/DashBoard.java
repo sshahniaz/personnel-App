@@ -1,19 +1,16 @@
 package com.example.personnel;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
 import androidx.fragment.app.FragmentTransaction;
-
 import com.example.personnel.DashboardFragments.clockInFragment;
 
 public class DashBoard extends AppCompatActivity {
 
-    Button clockBtn;
+    Button clockBtn, messages;
     TextView datetime, datetime2, shiftStart, shiftEnd;
     boolean clockedIn = true;
     FrameLayout displayBtn;
@@ -41,6 +38,7 @@ public class DashBoard extends AppCompatActivity {
         FragmentTransaction defaultTransaction = getSupportFragmentManager().beginTransaction();
         defaultTransaction.replace(R.id.buttonFragment, clockInFragmentObj);
         defaultTransaction.commit();
+
 
     }
 

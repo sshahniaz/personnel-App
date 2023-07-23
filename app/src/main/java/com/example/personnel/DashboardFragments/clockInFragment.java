@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.personnel.DBHelper;
 import com.example.personnel.R;
-import com.example.personnel.DashboardModelClasses.clockInModel;
+import com.example.personnel.DashboardAndMessagesModelClasses.ClockInModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -56,7 +56,7 @@ String dateString, timeString;
 
 //                Create object of clock in model class and pass required parameters
 
-                clockInModel objClockIn = new clockInModel(-1, dateString, timeString);
+                ClockInModel objClockIn = new ClockInModel(-1, dateString, timeString);
 
 //                Create object of DB helper class
 

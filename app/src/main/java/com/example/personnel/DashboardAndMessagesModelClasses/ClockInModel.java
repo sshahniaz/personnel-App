@@ -1,6 +1,6 @@
-package com.example.personnel.DashboardModelClasses;
+package com.example.personnel.DashboardAndMessagesModelClasses;
 
-public class clockInModel {
+public class ClockInModel {
 
 //    define variables for data
     private int id;
@@ -13,7 +13,7 @@ public class clockInModel {
 //    create constructor
 
 
-    public clockInModel(int id, String date, String clockInTime) {
+    public ClockInModel(int id, String date, String clockInTime) {
         this.id = id;
         this.date = date;
         this.clockInTime = clockInTime;

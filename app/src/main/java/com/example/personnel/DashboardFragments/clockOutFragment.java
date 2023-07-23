@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.personnel.DBHelper;
 import com.example.personnel.R;
-import com.example.personnel.DashboardModelClasses.clockOutModel;
+import com.example.personnel.DashboardAndMessagesModelClasses.ClockOutModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -56,7 +56,7 @@ String outDateString, outTimeString;
 
 //               Create object of clockOutModel class and pass params to constructor
 
-               clockOutModel objClockOut = new clockOutModel(-1, outTimeString, outDateString);
+               ClockOutModel objClockOut = new ClockOutModel(-1, outTimeString, outDateString);
 
 //               Create object of clock in fragment
                clockInFragment clockInFragmentObj = new clockInFragment();

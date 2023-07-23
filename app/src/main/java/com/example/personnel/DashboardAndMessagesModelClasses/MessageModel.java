@@ -1,4 +1,4 @@
-package com.example.personnel.DashboardModelClasses;
+package com.example.personnel.DashboardAndMessagesModelClasses;
 
 public class MessageModel {
     private int id;

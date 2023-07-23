@@ -5,8 +5,10 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.personnel.DashboardModelClasses.clockInModel;
-import com.example.personnel.DashboardModelClasses.clockOutModel;
+import com.example.personnel.DashboardAndMessagesModelClasses.ClockInModel;
+import com.example.personnel.DashboardAndMessagesModelClasses.ClockOutModel;
+import com.example.personnel.DashboardAndMessagesModelClasses.MessageModel;
+
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -179,7 +181,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 //    Method-- to insert clock-in values to attendance table
 
-    public  boolean addClockInData(clockInModel clockIn) {
+    public  boolean addClockInData(ClockInModel clockIn) {
 
 //        create db object
 
@@ -209,7 +211,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //        method-- update clock-out time in attendance table
 
-    public boolean updateClockOutTime(clockOutModel clockOut) {
+    public boolean updateClockOutTime(ClockOutModel clockOut) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues outValues = new ContentValues();
 

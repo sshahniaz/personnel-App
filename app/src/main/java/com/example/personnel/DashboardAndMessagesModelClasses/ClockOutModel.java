@@ -1,6 +1,6 @@
-package com.example.personnel.DashboardModelClasses;
+package com.example.personnel.DashboardAndMessagesModelClasses;
 
-public class clockOutModel {
+public class ClockOutModel {
 
 //    variables
 
@@ -13,7 +13,7 @@ public class clockOutModel {
 //    constructor
 
 
-    public clockOutModel(int id, String clockOutTime, String date) {
+    public ClockOutModel(int id, String clockOutTime, String date) {
         this.id = id;
         this.clockOutTime = clockOutTime;
         this.date = date;
