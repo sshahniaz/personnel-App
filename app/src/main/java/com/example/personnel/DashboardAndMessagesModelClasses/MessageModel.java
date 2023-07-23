@@ -7,15 +7,18 @@ public class MessageModel {
 
     private String messageDate;
 
+    private String messageSubject;
     private String messageText;
 
     private boolean expanded;
 
+
 //    Constructor
-    public MessageModel(int id, String messageTitle, String messageDate, String messageText) {
+    public MessageModel(int id, String messageTitle, String messageSubject, String messageDate, String messageText) {
         this.id = id;
         this.messageTitle = messageTitle;
         this.messageDate = messageDate;
+        this.messageSubject = messageSubject;
         this.messageText = messageText;
         expanded = false;
     }
@@ -28,6 +31,7 @@ public class MessageModel {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public String getMessageTitle() {
         return messageTitle;
@@ -43,6 +47,14 @@ public class MessageModel {
 
     public void setMessageDate(String messageDate) {
         this.messageDate = messageDate;
+    }
+
+    public String getMessageSubject() {
+        return messageSubject;
+    }
+
+    public void setMessageSubject(String messageSubject) {
+        this.messageSubject = messageSubject;
     }
 
     public String getMessageText() {
