@@ -24,5 +24,8 @@
     <color name="holidayCardRejected">#e38282</color>
     <color name="holidayBtnGroupBG">#ced4da</color>
 
+<!--    Login Page-->
+    <color name="loginInpBg">#e2e5e6</color>
 
+    #e2e5e6
 </resources>
