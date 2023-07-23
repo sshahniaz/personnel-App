@@ -2,12 +2,16 @@ package com.example.personnel;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.personnel.DashboardAndMessagesModelClasses.ClockInModel;
 import com.example.personnel.DashboardAndMessagesModelClasses.ClockOutModel;
 import com.example.personnel.DashboardAndMessagesModelClasses.MessageModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -142,10 +146,18 @@ public class DBHelper extends SQLiteOpenHelper {
     //Messages table -- for the messages
     public final String messagesTable = "messages";
     public final String messageId = "message_id";
+    public final String messageTitle = "message_title";
+
+    public final String messageDate = "message_date";
+
+    public final String messageSubject = "message_subject";
     public final String messageTxt = "message_txt";
 
     public final String createMessagesTable = "CREATE TABLE " + messagesTable + " ("
             + messageId + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + messageTitle + " TEXT,"
+            + messageDate + " TEXT,"
+            + messageSubject + " TEXT,"
             + messageTxt + " TEXT"
             + ")";
 
@@ -221,4 +233,53 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return result > 0;
     }
+
+// method-- insert values to messages table
+    public boolean setMessages(List<MessageModel> msgList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        boolean success = true;
+        try {
+            for (MessageModel msg : msgList) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(messageTitle, msg.getMessageTitle());
+                contentValues.put(messageDate, msg.getMessageDate());
+                contentValues.put(messageSubject, msg.getMessageSubject());
+                contentValues.put(messageTxt, msg.getMessageText());
+                db.insert(messagesTable, null, contentValues);
+            }
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+        } finally {
+            db.close();
+        }
+        return success;
+    }
+
+//    method-- retrieve values from database
+
+    public List<MessageModel> getAllMessages() {
+        List<MessageModel> messageList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = {messageId, messageTitle, messageDate, messageTxt};
+        Cursor c = db.query(messagesTable, columns, null, null, null, null, null);
+
+        if (c != null && c.moveToFirst()) {
+            do {
+                int  messageIdValue = c.getInt(0);
+                String messageTitleValue = c.getString(1);
+                String messageDateValue = c.getString(2);
+                String messageSubjectValue = c.getString(3);
+                String messageTxtValue = c.getString(4);
+                MessageModel msg = new MessageModel(messageIdValue, messageTitleValue, messageDateValue, messageSubjectValue, messageTxtValue);
+                messageList.add(msg);
+            } while (c.moveToNext());
+
+        }
+
+        return messageList;
+
+    }
+
 }
