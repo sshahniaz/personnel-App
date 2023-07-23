@@ -55,7 +55,7 @@
             android:layout_marginTop="-50dp"
             android:elevation="11dp"
             android:background="@drawable/cards"
-            android:backgroundTint="@color/background"
+
             android:gravity="center_horizontal">
 
             <androidx.cardview.widget.CardView
@@ -83,20 +83,26 @@
                         style="?attr/materialButtonOutlinedStyle"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
-                        android:text="Holiday" />
+                        android:text="Holiday"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/hanken_grotesk"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:text="Sick"
                         android:id="@+id/holiday_btn_sick"
-                        style="?attr/materialButtonOutlinedStyle"/>
+                        android:textStyle="bold"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:fontFamily="@font/hanken_grotesk"/>
                     <com.google.android.material.button.MaterialButton
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:text="In Lieu"
                         android:id="@+id/holiday_btn_inlieu"
-                        style="?attr/materialButtonOutlinedStyle"/>
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/hanken_grotesk"/>
 
                 </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -119,53 +125,55 @@
                     android:id="@+id/datePick_start_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="12dp"
                     android:layout_weight="1"
-                        >
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="12dp">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:weightSum="2">
+
                         <TextView
                             android:id="@+id/date_start_day"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="2dp"
                             android:text="22"
                             android:textSize="30dp"
-                            android:layout_weight="1"
-                            android:padding="2dp"
-                            android:gravity="center"/>
+                            android:fontFamily="@font/hanken_grotesk"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:layout_weight="1"
-
                             android:background="@color/accent"
+
+                            android:gravity="center"
+                            android:orientation="vertical"
                             android:padding="2dp"
-                            android:gravity="center">
+                            android:fontFamily="@font/hanken_grotesk">
 
                             <TextView
                                 android:id="@+id/date_start_month"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Jan"
-                                android:textSize="15dp"
                                 android:textColor="@color/primary"
-                                />
+                                android:textSize="15dp"
+                                android:fontFamily="@font/hanken_grotesk"/>
 
                             <TextView
                                 android:id="@+id/date_start_year"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="2023"
-                                android:textSize="19dp"
                                 android:textColor="@color/primary"
-                                />
+                                android:textSize="19dp"
+                                android:fontFamily="@font/hanken_grotesk"/>
 
                         </LinearLayout>
                     </LinearLayout>
@@ -179,7 +187,8 @@
                     android:text="To"
                     android:textSize="30dp"
                     android:gravity="center"
-                    android:elevation="12dp"/>
+                    android:elevation="12dp"
+                    android:fontFamily="@font/hanken_grotesk"/>
 
 
                 <!--   End Date Holder              -->
@@ -205,7 +214,8 @@
                         android:textSize="30dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:fontFamily="@font/hanken_grotesk"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -224,6 +234,7 @@
                             android:text="Jan"
                             android:textSize="15dp"
                             android:textColor="@color/primary"
+                            android:fontFamily="@font/hanken_grotesk"
                             />
 
                         <TextView
@@ -233,6 +244,7 @@
                             android:text="2023"
                             android:textSize="19dp"
                             android:textColor="@color/primary"
+                            android:fontFamily="@font/hanken_grotesk"
 
                             />
 
@@ -259,21 +271,27 @@
                     app:cardElevation="20dp"
                     >
                     <EditText
+                        android:id="@+id/holiday_reason"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Reason for leave"
-                        android:backgroundTint="@color/accent"/>
+                        android:backgroundTint="@color/accent"
+                        android:fontFamily="@font/hanken_grotesk"/>
 
                 </androidx.cardview.widget.CardView>
 
 
 
                 <Button
+                    android:id="@+id/holiday_book_btn"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="250dp"
                     android:layout_marginTop="30dp"
                     android:layout_height="wrap_content"
-                    android:text="Book"/>
+                    android:backgroundTint="@color/accent"
+                    android:textStyle="bold"
+                    android:text="Book"
+                    android:fontFamily="@font/hanken_grotesk"/>
             </LinearLayout>
 
         </RelativeLayout>

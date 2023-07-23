@@ -11,7 +11,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +38,8 @@ public class Holiday extends AppCompatActivity {
     DatePickerDialog datePickerDialog;
     Date selectedDate;
     TextView dateStartDay, dateStartMonth, dateStartYear, dateEndDay, dateEndMonth, dateEndYear;
+    EditText holidayReason;
+    Button bookBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +67,6 @@ public class Holiday extends AppCompatActivity {
         holidayCardList.setAdapter(adapter);
         holidayCardList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         //Book Holiday
-        DBHelper leaveDB = new DBHelper(this);
-        SQLiteDatabase db = leaveDB.getWritableDatabase();
 
         //Set Current Date on start
 
@@ -184,29 +186,64 @@ public class Holiday extends AppCompatActivity {
             }
         });
 
+        //Button Group selection
+        holidayBtnGroup = findViewById(R.id.holiday_btn_group);
+        holidayBtnGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
+            @Override
+            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
+                if(isChecked){
+                    if(checkedId==R.id.holiday_btn_holiday){
+                        selLeaveType = "Holiday";
+                    }
+                    if (checkedId==R.id.holiday_btn_inlieu) {
+                        selLeaveType = "Lieu";
+                    }
+                    if(checkedId==R.id.holiday_btn_sick){
+                        selLeaveType = "Sick";
+                    }
+                }
+            }
+        });
+
+
+        holidayReason = findViewById(R.id.holiday_reason);
+        bookBtn = findViewById(R.id.holiday_book_btn);
+
+        bookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Booking here
+                DBHelper leaveDB = new DBHelper(getApplicationContext());
+                SQLiteDatabase db = leaveDB.getWritableDatabase();
+
+
+                //Leave status is int so 0 == Pending, 1 == Approved, -1 == Rejected;
+                ContentValues values = new ContentValues();
+                values.put(leaveDB.employeeId, 1);
+                values.put(leaveDB.startDate,(dateStartDay.getText().toString()+"-"+dateStartMonth.getText().toString()+"-"+dateStartYear.getText().toString()));
+                values.put(leaveDB.endDate,(dateEndDay.getText().toString()+"-"+dateEndMonth.getText().toString()+"-"+dateEndYear.getText().toString()));
+                values.put(leaveDB.leaveType,selLeaveType);
+                values.put(leaveDB.reason,holidayReason.getText().toString());
+                values.put(leaveDB.status,0);
+
+                //Test
+              long result = db.insert(leaveDB.leaveTable,null,values);
+              if (result == -1){
+                  Toast.makeText(getApplicationContext(),"Failed", Toast.LENGTH_SHORT).show();
+              }else {
+                  Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_SHORT).show();
+
+              }
+
+                db.close();
+
+            }
+        });
 
 
 
 
-        //Leave status is int so 0 == Pending, 1 == Approved, -1 == Rejected;
-        ContentValues values = new ContentValues();
-//        values.put(leaveDB.employeeId, 1);
-//        values.put(leaveDB.startDate,dateNow);
-//        values.put(leaveDB.endDate,dateNow);
-//        values.put(leaveDB.leaveType,"Sick");
-//        values.put(leaveDB.reason,"Due to severe fever and headache");
-//        values.put(leaveDB.status,0);
 
-        //Test
-//        long result = db.insert(leaveDB.leaveTable,null,values);
-//        if (result == -1){
-//            Toast.makeText(this,"Failed", Toast.LENGTH_SHORT).show();
-//        }else {
-//            Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show();
-//
-//        }
-
-        db.close();
 
 
 
