@@ -119,10 +119,10 @@
                     android:id="@+id/datePick_start_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="5dp"
+                    app:cardCornerRadius="10dp"
                     app:cardElevation="12dp"
                     android:layout_weight="1"
-                    >
+                        >
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -144,7 +144,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:layout_weight="1"
-                            android:layout_marginLeft="3dp"
+
                             android:background="@color/accent"
                             android:padding="2dp"
                             android:gravity="center">
@@ -168,12 +168,7 @@
                                 />
 
                         </LinearLayout>
-
-
                     </LinearLayout>
-
-
-
 
                 </androidx.cardview.widget.CardView>
             <!--  Text holder "To"              -->

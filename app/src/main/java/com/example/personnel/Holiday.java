@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.personnel.holidayFiles.HolidayCardDataModel;
 import com.example.personnel.holidayFiles.HolidayListAdapter;
+import com.google.android.material.button.MaterialButtonToggleGroup;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,10 +30,12 @@ import java.util.List;
 public class Holiday extends AppCompatActivity {
     RecyclerView holidayCardList;
 
-    CardView datePickStartDate;
+    MaterialButtonToggleGroup holidayBtnGroup;
+    private String selLeaveType;
+    CardView datePickStartDate, datePickEndDate;
     DatePickerDialog datePickerDialog;
     Date selectedDate;
-    TextView dateStartDay, dateStartMonth, dateStartYear;
+    TextView dateStartDay, dateStartMonth, dateStartYear, dateEndDay, dateEndMonth, dateEndYear;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +73,10 @@ public class Holiday extends AppCompatActivity {
         dateStartMonth = findViewById(R.id.date_start_month);
         dateStartYear = findViewById(R.id.date_start_year);
 
+        dateEndDay = findViewById(R.id.date_end_day);
+                dateEndMonth = findViewById(R.id.date_end_month);
+        dateEndYear = findViewById(R.id.date_end_year);
+
         SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
         SimpleDateFormat monthFormat = new SimpleDateFormat("MMM");
         SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
@@ -79,6 +86,10 @@ public class Holiday extends AppCompatActivity {
         dateStartDay.setText(dayFormat.format(dateToday));
         dateStartMonth.setText(monthFormat.format(dateToday));
         dateStartYear.setText(yearFormat.format(dateToday));
+
+        dateEndDay.setText(dayFormat.format(dateToday));
+        dateEndMonth.setText(monthFormat.format(dateToday));
+        dateEndYear.setText(yearFormat.format(dateToday));
 
         //Get Datepicker from card on click
         datePickStartDate = findViewById(R.id.datePick_start_date);
@@ -125,6 +136,54 @@ public class Holiday extends AppCompatActivity {
 
             }
         });
+
+
+        //Date Picker End date
+
+        datePickEndDate = findViewById(R.id.datePick_end_date);
+
+        datePickEndDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Get current date for dialog
+                SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
+                SimpleDateFormat monthFormat = new SimpleDateFormat("MMM");
+                SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
+                final Calendar cal = Calendar.getInstance();
+                int mYear = cal.get(Calendar.YEAR); // current year
+                int mMonth = cal.get(Calendar.MONTH); // current month
+                int mDay = cal.get(Calendar.DAY_OF_MONTH); // current day
+
+
+                datePickerDialog = new DatePickerDialog(Holiday.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        SimpleDateFormat req = new SimpleDateFormat("dd-MM-yyyy");
+                        String dateSelected = dayOfMonth+"-"+month+"-"+year;
+
+                        try {
+                            selectedDate = req.parse(dateSelected);
+                        } catch (ParseException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                        String dayNow = dayFormat.format(selectedDate);
+                        String monthNow = monthFormat.format(selectedDate);
+                        String yearNow = yearFormat.format(selectedDate);
+
+
+
+                        dateEndDay.setText(dayNow);
+                        dateEndMonth.setText(monthNow);
+                        dateEndYear.setText(yearNow);
+                    }
+                },mYear,mMonth,mDay);
+                datePickerDialog.show();
+
+            }
+        });
+
 
 
 
