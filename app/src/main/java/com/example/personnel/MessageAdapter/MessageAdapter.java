@@ -48,7 +48,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageV
         MessageModel model = messageList.get(position);
         holder.messageTitle.setText(model.getMessageTitle());
         holder.messageDate.setText(model.getMessageDate());
+        holder.messageSubject.setText(model.getMessageSubject());
         holder.messageBody.setText(model.getMessageText());
+
 
         //         Set OnClickListener on the card view for expansion/colour focus
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -62,12 +64,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageV
                 holder.messageBody.setVisibility(expanded ? View.GONE : View.VISIBLE);
                 if (!model.isExpanded()) {
                     holder.messageLayout.setBackgroundResource(R.drawable.cards);
-                    holder.messageTitle.setTextColor(Color.parseColor("#000000"));
-                    holder.messageDate.setTextColor(Color.parseColor("#000000"));
+                    holder.messageTitle.setTextColor(Color.parseColor("#343A40"));
+                    holder.messageDate.setTextColor(Color.parseColor("#707070"));
+                    holder.messageSubject.setTextColor(Color.parseColor("#343A40"));
                 } else {
                     holder.messageLayout.setBackgroundResource(R.color.widgets);
                     holder.messageTitle.setTextColor(Color.parseColor("#FFFFFF"));
                     holder.messageDate.setTextColor(Color.parseColor("#FFFFFF"));
+                    holder.messageSubject.setTextColor(Color.parseColor("#FFFFFF"));
                     holder.messageBody.setTextColor(Color.parseColor("#FFFFFF"));
                 }
             }

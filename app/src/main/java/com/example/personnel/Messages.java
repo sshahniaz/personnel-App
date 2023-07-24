@@ -193,16 +193,14 @@ public class Messages extends AppCompatActivity {
 
 
 
-//       boolean success = dbHelper.setMessages(msgList);
-////
-//     if (success) {
-//           Toast.makeText(Messages.this, "All rows inserted successfully", Toast.LENGTH_LONG).show();
-//       } else {
-//           Toast.makeText(Messages.this, "Failed to insert messages", Toast.LENGTH_LONG).show();
-//       }
+       boolean success = dbHelper.setMessages(msgList);
 //
-//            textViewMsg.setText(msg.toString());
-//           DBHelper dbHelper = new DBHelper(Messages.this);
+     if (success) {
+           Toast.makeText(Messages.this, "All rows inserted successfully", Toast.LENGTH_LONG).show();
+       } else {
+           Toast.makeText(Messages.this, "Failed to insert messages", Toast.LENGTH_LONG).show();
+       }
+
 
 //return all messages from database
         DBHelper dbHelper2 = new DBHelper(Messages.this);
