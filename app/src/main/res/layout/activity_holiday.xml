@@ -60,17 +60,19 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:id="@+id/holiday_btnGrp_container"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="20dp"
+                android:padding="0dp"
+                app:cardElevation="12dp"
                 android:layout_marginLeft="25dp"
                 >
 
                 <com.google.android.material.button.MaterialButtonToggleGroup
                     android:id="@+id/holiday_btn_group"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
 
 
                     app:selectionRequired="true"
@@ -276,6 +278,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Reason for leave"
                         android:backgroundTint="@color/accent"
+                        android:background="@android:color/transparent"
                         android:fontFamily="@font/hanken_grotesk"/>
 
                 </androidx.cardview.widget.CardView>
