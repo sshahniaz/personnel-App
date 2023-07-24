@@ -2,19 +2,15 @@ package com.example.personnel.DashboardAndMessagesModelClasses;
 
 public class MessageModel {
     private int id;
-
     private String messageTitle;
-
     private String messageDate;
-
     private String messageSubject;
     private String messageText;
-
     private boolean expanded;
 
 
 //    Constructor
-    public MessageModel(int id, String messageTitle, String messageSubject, String messageDate, String messageText) {
+    public MessageModel(int id, String messageTitle,  String messageDate, String messageSubject, String messageText) {
         this.id = id;
         this.messageTitle = messageTitle;
         this.messageDate = messageDate;
