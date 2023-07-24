@@ -262,7 +262,7 @@ public class DBHelper extends SQLiteOpenHelper {
         List<MessageModel> messageList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String[] columns = {messageId, messageTitle, messageDate, messageTxt};
+        String[] columns = {messageId, messageTitle, messageDate, messageSubject, messageTxt};
         Cursor c = db.query(messagesTable, columns, null, null, null, null, null);
 
         if (c != null && c.moveToFirst()) {
