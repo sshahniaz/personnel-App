@@ -1,6 +1,7 @@
 package com.example.personnel;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -173,4 +174,20 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+messagesTable+";");
         onCreate(db);
     }
+
+    public Cursor getAlPayslip(int i) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String select = "SELECT * FROM " + payrollTable + " WHERE employee_id = 1 ORDER BY payroll_id DESC";
+        Cursor res = db.rawQuery(select, null);
+        return res;
+    }
+
+    // setting placeholders in the SQL query and pass the actual value when the user is logged in
+//    public Cursor getAlPayslip(int userId) {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        String select = "SELECT * FROM " + payrollTable + " WHERE employee_id = ? ORDER BY payroll_id DESC";
+//        String[] selectionArgs = {String.valueOf(userId)};
+//        Cursor res = db.rawQuery(select, selectionArgs);
+//        return res;
+//    }
 }
