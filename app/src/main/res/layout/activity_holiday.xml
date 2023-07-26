@@ -60,7 +60,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="40dp"
                 android:id="@+id/holiday_btnGrp_container"
                 app:cardCornerRadius="20dp"
@@ -72,7 +72,7 @@
                 <com.google.android.material.button.MaterialButtonToggleGroup
                     android:id="@+id/holiday_btn_group"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
 
 
                     app:selectionRequired="true"
@@ -84,24 +84,33 @@
                         android:id="@+id/holiday_btn_holiday"
                         style="?attr/materialButtonOutlinedStyle"
                         android:layout_width="120dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="62dp"
                         android:text="Holiday"
                         android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/holiday_btn_text_style"
+                        app:backgroundTint="@color/item_holiday_btn_style"
                         android:fontFamily="@font/hanken_grotesk"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:layout_width="120dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="62dp"
                         android:text="Sick"
                         android:id="@+id/holiday_btn_sick"
                         android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/holiday_btn_text_style"
+                        app:backgroundTint="@color/item_holiday_btn_style"
                         style="?attr/materialButtonOutlinedStyle"
                         android:fontFamily="@font/hanken_grotesk"/>
                     <com.google.android.material.button.MaterialButton
                         android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:text="In Lieu"
+                        android:layout_height="62dp"
+                        android:text="Lieu"
                         android:id="@+id/holiday_btn_inlieu"
+                        android:textSize="20sp"
+                        android:textColor="@color/holiday_btn_text_style"
+                        app:backgroundTint="@color/item_holiday_btn_style"
                         style="?attr/materialButtonOutlinedStyle"
                         android:textStyle="bold"
                         android:fontFamily="@font/hanken_grotesk"/>
@@ -114,7 +123,7 @@
             <!--   Date Holder         -->
             <LinearLayout
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:id="@+id/dateContainer"
                 android:layout_below="@+id/holiday_btnGrp_container"
                 android:orientation="horizontal"
@@ -140,7 +149,7 @@
                         <TextView
                             android:id="@+id/date_start_day"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="80dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:padding="2dp"
@@ -150,7 +159,7 @@
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="80dp"
                             android:layout_weight="1"
                             android:background="@color/accent"
 
@@ -184,7 +193,7 @@
             <!--  Text holder "To"              -->
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
                     android:text="To"
                     android:textSize="30dp"
@@ -211,7 +220,7 @@
                     <TextView
                         android:id="@+id/date_end_day"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="80dp"
                         android:text="22"
                         android:textSize="30dp"
                         android:layout_weight="1"
@@ -221,7 +230,7 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="80dp"
                         android:orientation="vertical"
                         android:layout_weight="1"
                         android:layout_marginLeft="3dp"
@@ -275,8 +284,9 @@
                     <EditText
                         android:id="@+id/holiday_reason"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="80dp"
                         android:hint="Reason for leave"
+                        android:textSize="25sp"
                         android:backgroundTint="@color/accent"
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/hanken_grotesk"/>
@@ -290,10 +300,11 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_width="250dp"
                     android:layout_marginTop="30dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:backgroundTint="@color/accent"
                     android:textStyle="bold"
                     android:text="Book"
+                    android:textSize="25sp"
                     android:fontFamily="@font/hanken_grotesk"/>
             </LinearLayout>
 

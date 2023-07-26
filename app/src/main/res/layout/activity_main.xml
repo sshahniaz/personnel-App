@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:backgroundTint="@color/widgets"
-    android:background="@color/widgets">
+    android:background="@color/widgets"
+
+    >
 
     <RelativeLayout
 
@@ -17,7 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,6 +31,7 @@
 
             <ImageView
                 android:id="@+id/imageView"
+
                 android:layout_width="180dp"
                 android:layout_height="341dp"
                 app:srcCompat="@drawable/applogo" />
@@ -46,7 +50,8 @@
 
                     <ImageView
                         android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical"
                         app:srcCompat="@drawable/user_icon" />
                     <EditText
                         android:id="@+id/username_input"
@@ -75,7 +80,8 @@
 
                     <ImageView
                         android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center_vertical"
                         app:srcCompat="@drawable/pswd_icon" />
                     <EditText
                         android:id="@+id/pswd_input"
@@ -93,13 +99,15 @@
             </androidx.cardview.widget.CardView>
 
             <Button
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="70dp"
                 android:id="@+id/login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
                 android:backgroundTint="@color/accent"
                 android:fontFamily="@font/hanken_grotesk"
-                android:text="Login" />
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:text="Log in" />
         </LinearLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
