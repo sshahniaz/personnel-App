@@ -11,11 +11,13 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/house"
             android:title="Home"
+            app:showAsAction="never"
             />
         <item
             android:id="@+id/nav_payslip"
             android:icon="@drawable/payslip_icon"
             android:title="Payslip"
+            app:showAsAction="never"
 
             />
 
@@ -23,16 +25,19 @@
             android:id="@+id/nav_holiday"
             android:icon="@drawable/holiday_icon"
             android:title="Holiday"
+            app:showAsAction="never"
             />
         <item
             android:id="@+id/nav_rota"
             android:icon="@drawable/rota_icon"
             android:title="Rota"
+            app:showAsAction="never"
             />
         <item
             android:id="@+id/nav_messages"
             android:icon="@drawable/messages_icon"
             android:title="Messages"
+            app:showAsAction="never"
             />
         <item
             android:id="@+id/nav_help"
@@ -51,7 +56,7 @@
                 android:id="@+id/nav_logout"
                 android:title="Logout"
                 android:icon="@drawable/logout"
-
+                app:showAsAction="never"
                 />
         </menu>
     </item>

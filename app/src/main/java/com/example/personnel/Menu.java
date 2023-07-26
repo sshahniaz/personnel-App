@@ -41,10 +41,12 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
         if(savedInstanceState==null)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home_fragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home_frag()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
     }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -52,30 +54,30 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         if(item_id==R.id.nav_home)
         {
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home_fragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home_frag()).commit();
         }
         else
         if(item_id==R.id.nav_holiday)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Holiday_fragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Holiday_frag()).commit();
 
         }
         else
         if(item_id==R.id.nav_payslip)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Payslip_fragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Payslip_frag()).commit();
 
         }
         else
         if(item_id==R.id.nav_rota)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Rota_fragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Rota_frag()).commit();
 
         }
         else
         if(item_id==R.id.nav_messages)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages_fragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages_frag()).commit();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

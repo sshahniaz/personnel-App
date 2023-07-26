@@ -27,7 +27,6 @@
                 android:id="@+id/toolbar"
                 android:elevation="4dp"
                 app:navigationIcon="@drawable/baseline_menu_24"
-
                 android:background="#F5FAFD"
                 android:theme="@style/Theme.App"
                 />
