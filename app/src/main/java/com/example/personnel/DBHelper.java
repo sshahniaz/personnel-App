@@ -119,6 +119,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public final String rotaTable = "rota";
     public final String rotaId = "rota_id";
+
+    public final String day = "rota_day";
     public final String startTime = "start_time";
     public final String endTime = "end_time";
     public final String breakTime = "break_time";
@@ -126,7 +128,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public final String createRotaTable = "CREATE TABLE " + rotaTable + " ("
             + rotaId + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + employeeIdFK + " INTEGER,"
-            + date + " TEXT,"
+            + day + " TEXT,"
             + startTime + " TEXT,"
             + endTime + " TEXT,"
             + breakTime + " TEXT,"
