@@ -2,6 +2,7 @@ package com.example.personnel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -44,6 +45,19 @@ public class MainActivity extends AppCompatActivity {
                     if((userName.getText().toString().trim()).equals(cursor.getString(1))){
                         //Toast for now will check for password hash later
                         Toast.makeText(getApplicationContext(),"Username VAlid empID: "+cursor.getInt(3),Toast.LENGTH_SHORT).show();
+                        if((pswdInput.getText().toString().trim()).equals(cursor.getString(2))){
+
+                            Toast.makeText(getApplicationContext(),"Password VAlid empID: "+cursor.getInt(3),Toast.LENGTH_SHORT).show();
+
+                            //TODO: get employee id and transfer to next page
+
+                            Intent intent = new Intent(MainActivity.this, DashBoard.class);
+                            intent.putExtra(personnelDB.employeeId,cursor.getInt(3));
+                            startActivity(intent);
+                        }
+
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Username Invalid empID: "+cursor.getInt(3),Toast.LENGTH_SHORT).show();
                     }
                     }
                 }
