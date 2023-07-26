@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Rota extends AppCompatActivity {
+public class Rota extends Menu {
 
 
 
@@ -16,9 +16,9 @@ public class Rota extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-        getMenuInflater().inflate(R.menu.nav_menu,menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+//        getMenuInflater().inflate(R.menu.nav_menu,menu);
+//        return true;
+//    }
 }

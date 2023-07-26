@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DashBoard">
+    tools:context=".DashBoard"
+    >
 
     <include layout="@layout/activity_menu"/>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="467dp"
@@ -14,12 +16,13 @@
         android:backgroundTint="#F5FAFD"
         app:cardCornerRadius="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:ignore="ContentDescription" >
+            tools:ignore="ContentDescription">
 
             <ImageButton
                 android:id="@+id/holidayButton"
@@ -43,8 +46,7 @@
                 app:layout_constraintStart_toEndOf="@+id/payslipButton"
                 app:layout_constraintTop_toBottomOf="@+id/rotaButton"
                 app:srcCompat="@drawable/messagesbutton"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck"
-                />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:id="@+id/rotaButton"
@@ -68,8 +70,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/holidayButton"
                 app:srcCompat="@drawable/payslipbutton"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck"
-                />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

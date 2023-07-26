@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/hanken_grotesk"
+            android:outlineAmbientShadowColor="@color/black"
+            android:text="Week 3"
+            android:textColor="#F5FAFD"
+            android:textFontWeight="600"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/hanken_grotesk"
+            android:outlineAmbientShadowColor="@color/black"
+            android:text="10 Jul - 16 Jul"
+            android:textColor="#F5FAFD"
+            android:textFontWeight="600"
+            android:textSize="24dp" />
+
+
+        <!-- Weekdays rota Layout-->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/week_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/hanken_grotesk"
+                android:outlineAmbientShadowColor="@color/black"
+                android:text="Mon"
+                android:textColor="#343A40"
+                android:textFontWeight="800"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/hanken_grotesk"
+                android:outlineAmbientShadowColor="@color/black"
+                android:text="Tue"
+                android:textColor="#343A40"
+                android:textFontWeight="800"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/hanken_grotesk"
+                android:outlineAmbientShadowColor="@color/black"
+                android:text="Wed"
+                android:textColor="#343A40"
+                android:textFontWeight="800"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/Thu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/hanken_grotesk"
+                android:outlineAmbientShadowColor="@color/black"
+                android:text="Thu"
+                android:textColor="#343A40"
+                android:textFontWeight="800"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/Fri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/hanken_grotesk"
+                android:outlineAmbientShadowColor="@color/black"
+                android:text="Fri"
+                android:textColor="#343A40"
+                android:textFontWeight="800"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/sat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/hanken_grotesk"
+                android:outlineAmbientShadowColor="@color/black"
+                android:text="Sat"
+                android:textColor="#343A40"
+                android:textFontWeight="800"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/sun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/hanken_grotesk"
+                android:outlineAmbientShadowColor="@color/black"
+                android:text="Sun"
+                android:textColor="#343A40"
+                android:textFontWeight="800"
+                android:textSize="24dp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/rota_mon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="12:30"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="21:30"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/rota_tue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="12:30"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="21:30"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/rota_wed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="Off"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/rota_thu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="27dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="16:00"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="27dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="21:30"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/rota_fri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="12:30"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="21:30"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/rota_Sat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="08:30"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="18:30"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/rota_sun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/hanken_grotesk"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:text="Off"
+                    android:textColor="#343A40"
+                    android:textFontWeight="800"
+                    android:textSize="18dp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,8 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Rota">
 
-    <include layout="@layout/activity_menu"/>
+<!--    <include layout="@layout/activity_menu"/>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:backgroundTint="@drawable/shadow"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="58dp">
 
+
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
