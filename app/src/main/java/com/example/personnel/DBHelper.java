@@ -189,11 +189,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
 //        for(int i=0;i<6;i++)
 //        {
-//            for(int j=0;j<7;j++)
-//            {
-                do{
-                if (c != null && c.moveToFirst()) {
+            for(int j=0;j<7;j++)
+            {
 
+                if (c != null && c.moveToFirst()) {
+                    do{
                     int  rotaIdValue = c.getInt(0);
 
                     String rotaDayValue = c.getString(1);
@@ -202,14 +202,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
                     Rota_Model msg = new Rota_Model(rotaIdValue, rotaDayValue, rotaStartValue, rotaEndValue);
                     rotaList.add(msg);
-                }
+                }while(c.moveToNext() && j<7);
 
-                }while(c.moveToNext());
+                }
 
 
             //}
 
-        //}
+        }
         return rotaList;
 
     }
