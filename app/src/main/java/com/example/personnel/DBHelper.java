@@ -1,10 +1,14 @@
 package com.example.personnel;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -120,7 +124,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public final String rotaTable = "rota";
     public final String rotaId = "rota_id";
 
-    public final String day = "rota_day";
+    public final String rotaDate = "date";
     public final String startTime = "start_time";
     public final String endTime = "end_time";
     public final String breakTime = "break_time";
@@ -128,7 +132,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public final String createRotaTable = "CREATE TABLE " + rotaTable + " ("
             + rotaId + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + employeeIdFK + " INTEGER,"
-            + day + " TEXT,"
+            + rotaDate + " TEXT,"
             + startTime + " TEXT,"
             + endTime + " TEXT,"
             + breakTime + " TEXT,"
@@ -174,5 +178,39 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+attendanceTable+";");
         db.execSQL("DROP TABLE IF EXISTS "+messagesTable+";");
         onCreate(db);
+    }
+
+    public List<Rota_Model> getAllRota() {
+        List<Rota_Model> rotaList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = {rotaId,rotaDate, startTime, endTime};
+        Cursor c = db.query(rotaTable, columns, null, null, null, null, null);
+
+//        for(int i=0;i<6;i++)
+//        {
+            for(int j=0;j<7;j++)
+            {
+                do{
+                if (c != null && c.moveToFirst()) {
+
+                    int  rotaIdValue = c.getInt(0);
+
+                    String rotaDayValue = c.getString(1);
+                    String rotaStartValue = c.getString(2);
+                    String rotaEndValue = c.getString(3);
+
+                    Rota_Model msg = new Rota_Model(rotaIdValue, rotaDayValue, rotaStartValue, rotaEndValue);
+                    rotaList.add(msg);
+                }
+
+                }while(c.moveToNext());
+
+
+            //}
+
+        }
+        return rotaList;
+
     }
 }
