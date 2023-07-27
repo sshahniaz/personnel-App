@@ -7,8 +7,6 @@
     tools:context=".DashBoard"
     >
 
-    <include layout="@layout/activity_menu"/>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="467dp"
@@ -75,4 +73,5 @@
 
 
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
