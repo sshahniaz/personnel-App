@@ -189,8 +189,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
 //        for(int i=0;i<6;i++)
 //        {
-            for(int j=0;j<7;j++)
-            {
+//            for(int j=0;j<7;j++)
+//            {
                 do{
                 if (c != null && c.moveToFirst()) {
 
@@ -209,7 +209,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
             //}
 
-        }
+        //}
         return rotaList;
 
     }
