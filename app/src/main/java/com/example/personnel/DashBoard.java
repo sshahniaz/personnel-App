@@ -2,11 +2,8 @@ package com.example.personnel;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-
 import androidx.fragment.app.FragmentTransaction;
 import com.example.personnel.DashboardFragments.clockInFragment;
-
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

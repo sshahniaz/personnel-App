@@ -27,12 +27,12 @@ String dateString, timeString;
 //        Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_clock_in, container, false);
 
-        //          Access bundle from dashboard class
+//           Access bundle from dashboard class
         Bundle bundle = getArguments();
         assert bundle != null;
         String empId = bundle.getString("empId");
 
-////        Test bundle
+//        Test bundle
         Toast.makeText(getContext(), "Response success= " + empId, Toast.LENGTH_SHORT).show();
 
 
@@ -62,16 +62,18 @@ String dateString, timeString;
 //            Create object of clock out fragment, create transaction, replace view and commit
                 clockOutFragment clockOutFragmentObj = new clockOutFragment();
                 FragmentTransaction clockInTransaction = getFragmentManager().beginTransaction();
+
 //                clockOutFragmentObj.setArguments(bundle);
                 clockInTransaction.replace(R.id.buttonFragment, clockOutFragmentObj);
                 clockInTransaction.commit();
 
-                //                Create object of DB helper class
+//                   Create object of DB helper class
                 DBHelper dbHelper = new DBHelper(getContext());
 //                insert data to table using addClockInData method
-                boolean success = dbHelper.addClockInData(objClockIn);
-//                test clock in model params and success of method
 
+                boolean success = dbHelper.addClockInData(objClockIn);
+
+//                test clock in model params and success of method
                 Toast.makeText(getContext(), objClockIn.toString() + "result= " + success, Toast.LENGTH_LONG).show();
             }
         });

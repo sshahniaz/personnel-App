@@ -22,6 +22,7 @@ public class Messages extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messages);
 
+//        Insert values
   DBHelper dbHelper = new DBHelper(Messages.this);
 
     List<MessageModel> msgList = new ArrayList<>();
@@ -196,9 +197,9 @@ public class Messages extends AppCompatActivity {
        boolean success = dbHelper.setMessages(msgList);
 //
      if (success) {
-           Toast.makeText(Messages.this, "All rows inserted successfully", Toast.LENGTH_LONG).show();
+           Toast.makeText(Messages.this, "All rows inserted successfully", Toast.LENGTH_SHORT).show();
        } else {
-           Toast.makeText(Messages.this, "Failed to insert messages", Toast.LENGTH_LONG).show();
+           Toast.makeText(Messages.this, "Failed to insert messages", Toast.LENGTH_SHORT).show();
        }
 
 
@@ -209,8 +210,10 @@ public class Messages extends AppCompatActivity {
 //        set adapter to recycler view
         mainAdapter = new MessageAdapter(messageList);
         recyclerViewMsg = findViewById(R.id.myRecyclerView);
+
         // LinearLayoutManager ALWAYS CHECK orientation!!!!!!!!
         recyclerViewMsg.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
 //      increases performance- only set if sizes wont change
         recyclerViewMsg.setHasFixedSize(true);
         recyclerViewMsg.setAdapter(mainAdapter);

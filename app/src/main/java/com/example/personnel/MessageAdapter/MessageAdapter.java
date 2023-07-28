@@ -33,16 +33,17 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageV
     public MessageAdapter(List<MessageModel> messageList) {
         this.messageList = messageList;
 
-
     }
     @NonNull
     @Override
     public MessageAdapter.messageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        Set view
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_layout, parent, false);
         TextView date = view.findViewById(R.id.messageDate);
         return new messageViewHolder(view, mainListener);
     }
 
+//    Pass values to message model
     @Override
     public void onBindViewHolder(@NonNull MessageAdapter.messageViewHolder holder, int position) {
         MessageModel model = messageList.get(position);
@@ -52,7 +53,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageV
         holder.messageBody.setText(model.getMessageText());
 
 
-        //         Set OnClickListener on the card view for expansion/colour focus
+        //         Set OnClickListener on card view for expansion/colour focus
         holder.itemView.setOnClickListener(new View.OnClickListener() {
 
             @SuppressLint("ResourceAsColor")
@@ -90,6 +91,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageV
         return messageList.size();
     }
 
+//    Set components
     public class messageViewHolder extends RecyclerView.ViewHolder {
         TextView messageTitle;
         TextView messageDate;
@@ -106,7 +108,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageV
             messageLayout = itemView.findViewById(R.id.mLinearView);
             messageClose = itemView.findViewById(R.id.close);
 
-//          event to delete item
+//          Event to delete item
             messageClose.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
