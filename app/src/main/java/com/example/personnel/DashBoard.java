@@ -1,7 +1,13 @@
 package com.example.personnel;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
+import androidx.fragment.app.FragmentTransaction;
+import com.example.personnel.DashboardFragments.clockInFragment;
+
+
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -10,8 +16,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.FragmentTransaction;
-import com.example.personnel.DashboardFragments.clockInFragment;
+import java.util.List;
+
 
 public class DashBoard extends AppCompatActivity {
 
@@ -22,7 +28,7 @@ public class DashBoard extends AppCompatActivity {
     FrameLayout displayBtn;
 
     String dateString, timeString;
-    int empID;
+    private int empID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +37,7 @@ public class DashBoard extends AppCompatActivity {
 //      Set views clock in/out function
         datetime = (TextView) findViewById(R.id.dateTime);
         datetime2 = (TextView) findViewById(R.id.dateTime2);
+        shiftDay = (TextView) findViewById(R.id.shiftDay);
         shiftStart = (TextView) findViewById(R.id.shiftStart);
         shiftEnd = (TextView) findViewById(R.id.shiftEnd);
         displayBtn=(FrameLayout) findViewById(R.id.buttonFragment);
@@ -38,7 +45,7 @@ public class DashBoard extends AppCompatActivity {
 //        Get bundle from intent
         Bundle extras = getIntent().getExtras();
         empID = extras.getInt("employee_id");
-        Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_LONG).show();
+        Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_SHORT).show();
 
 //      *******  DEFAULT FRAGMENT DISPLAY *******
 
@@ -63,7 +70,7 @@ public class DashBoard extends AppCompatActivity {
             String startTimeValue = cursor.getString(3);
             String endTimeValue = cursor.getString(4);
 
-            Toast.makeText(DashBoard.this, "Day = " + dayValue + ", Start time = " + startTimeValue + ", End time = " + endTimeValue , Toast.LENGTH_LONG).show();
+//            Toast.makeText(DashBoard.this, "Day = " + dayValue + ", Start time = " + startTimeValue + ", End time = " + endTimeValue , Toast.LENGTH_SHORT).show();
             shiftDay.setText(dayValue);
             shiftStart.setText(startTimeValue);
             shiftEnd.setText(endTimeValue);
