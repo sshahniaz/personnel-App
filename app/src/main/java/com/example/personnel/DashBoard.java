@@ -64,28 +64,28 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         if(item_id==R.id.nav_holiday)
         {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Holiday_frag()).commit();
-            Intent intent=new Intent(DashBoard.this, Holiday.class);
+            Intent intent=new Intent(getApplicationContext(), Holiday.class);
             startActivity(intent);
         }
         else
         if(item_id==R.id.nav_payslip)
         {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Payslip_frag()).commit();
-            Intent intent=new Intent(DashBoard.this, Payslip.class);
+            Intent intent=new Intent(getApplicationContext(), Payslip.class);
             startActivity(intent);
         }
         else
         if(item_id==R.id.nav_rota)
         {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Rota_frag()).commit();
-            Intent intent=new Intent(DashBoard.this, Rota.class);
+            Intent intent=new Intent(getApplicationContext(), Rota.class);
             startActivity(intent);
         }
         else
         if(item_id==R.id.nav_messages)
         {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages_frag()).commit();
-            Intent intent=new Intent(DashBoard.this, Messages.class);
+            Intent intent=new Intent(getApplicationContext(), Messages.class);
             startActivity(intent);
         }
         mainLayout.closeDrawer(GravityCompat.START);
