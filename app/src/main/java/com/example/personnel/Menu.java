@@ -23,31 +23,33 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        drawerLayout=findViewById(R.id.drawer_layout);
+//        drawerLayout=findViewById(R.id.drawer_layout);
+//
+//        Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+//        NavigationView navigationView=(NavigationView) findViewById(R.id.nav_view);
+//        navigationView.setNavigationItemSelectedListener(this);
+//
+//        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav,R.string.close_nav);
+//        drawerLayout.addDrawerListener(toggle);
+//        toggle.syncState();
+//
+//
+////        not showing the app title
+//        ActionBar actionBar=getSupportActionBar();
+//        actionBar.setDisplayShowTitleEnabled(false);
+//
 
-        Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        NavigationView navigationView=(NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav,R.string.close_nav);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        ActionBar actionBar=getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
-
-
-
-        if(savedInstanceState==null)
-        {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home_frag()).commit();
-            navigationView.setCheckedItem(R.id.nav_home);
-            Intent intent=new Intent(Menu.this, DashBoard.class);
-            startActivity(intent);
-        }
-    }
+//        if(savedInstanceState==null)
+//        {
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home_frag()).commit();
+//            navigationView.setCheckedItem(R.id.nav_home);
+//            Intent intent=new Intent(Menu.this, DashBoard.class);
+//            startActivity(intent);
+//        }
+   }
 
 
 
