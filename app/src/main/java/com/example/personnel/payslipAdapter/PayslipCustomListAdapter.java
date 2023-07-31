@@ -1,4 +1,4 @@
-package com.example.personnel.adapters;
+package com.example.personnel.payslipAdapter;
 
 import android.app.Activity;
 import android.content.Intent;

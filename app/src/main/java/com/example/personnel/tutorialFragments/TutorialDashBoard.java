@@ -1,4 +1,4 @@
-package com.example.personnel.fragments;
+package com.example.personnel.tutorialFragments;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.personnel.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TutorialHoliday#newInstance} factory method to
+ * Use the {@link TutorialDashBoard#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TutorialHoliday extends Fragment {
+public class TutorialDashBoard extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class TutorialHoliday extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public TutorialHoliday() {
+    public TutorialDashBoard() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class TutorialHoliday extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TutorialHoliday.
+     * @return A new instance of fragment TutorialDashBoard.
      */
     // TODO: Rename and change types and number of parameters
-    public static TutorialHoliday newInstance(String param1, String param2) {
-        TutorialHoliday fragment = new TutorialHoliday();
+    public static TutorialDashBoard newInstance(String param1, String param2) {
+        TutorialDashBoard fragment = new TutorialDashBoard();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class TutorialHoliday extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tutorial_holiday, container, false);
+        return inflater.inflate(R.layout.fragment_tutorial_dashboard, container, false);
     }
 }

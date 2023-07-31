@@ -1,4 +1,4 @@
-package com.example.personnel.fragments;
+package com.example.personnel.tutorialFragments;
 
 import android.os.Bundle;
 

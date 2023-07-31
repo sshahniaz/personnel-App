@@ -1,4 +1,4 @@
-package com.example.personnel.fragments;
+package com.example.personnel.tutorialFragments;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.personnel.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TutorialPayslip#newInstance} factory method to
+ * Use the {@link TutorialHoliday#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TutorialPayslip extends Fragment {
+public class TutorialHoliday extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class TutorialPayslip extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public TutorialPayslip() {
+    public TutorialHoliday() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class TutorialPayslip extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TutorialPayslip.
+     * @return A new instance of fragment TutorialHoliday.
      */
     // TODO: Rename and change types and number of parameters
-    public static TutorialPayslip newInstance(String param1, String param2) {
-        TutorialPayslip fragment = new TutorialPayslip();
+    public static TutorialHoliday newInstance(String param1, String param2) {
+        TutorialHoliday fragment = new TutorialHoliday();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class TutorialPayslip extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tutorial_payslip, container, false);
+        return inflater.inflate(R.layout.fragment_tutorial_holiday, container, false);
     }
 }

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,12 +11,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import com.example.personnel.fragments.TutorialDashBoard;
-import com.example.personnel.fragments.TutorialHelp;
-import com.example.personnel.fragments.TutorialHoliday;
-import com.example.personnel.fragments.TutorialMessages;
-import com.example.personnel.fragments.TutorialPayslip;
-import com.example.personnel.fragments.TutorialRota;
+import com.example.personnel.tutorialFragments.TutorialDashBoard;
+import com.example.personnel.tutorialFragments.TutorialHelp;
+import com.example.personnel.tutorialFragments.TutorialHoliday;
+import com.example.personnel.tutorialFragments.TutorialMessages;
+import com.example.personnel.tutorialFragments.TutorialPayslip;
+import com.example.personnel.tutorialFragments.TutorialRota;
 
 public class Tutorial extends AppCompatActivity {
 

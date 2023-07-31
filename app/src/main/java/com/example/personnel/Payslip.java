@@ -5,14 +5,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.personnel.adapters.PayslipCustomListAdapter;
+import com.example.personnel.payslipAdapter.PayslipCustomListAdapter;
 
 import java.util.ArrayList;
 
