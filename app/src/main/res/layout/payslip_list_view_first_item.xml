@@ -14,7 +14,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/hanken_grotesk"
-
         android:textColor="#F5FAFD"
         android:textSize="50dp"
         android:textStyle="bold" />

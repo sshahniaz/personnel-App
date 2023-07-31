@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Help">
+
+    <RelativeLayout android:id="@+id/tutorial"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/cards">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to?"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:textSize="40dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/hanken_grotesk"/>
+
+        <Button
+            android:id="@+id/guide1btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="#00000000"
+            android:textColor="#82AAE3"
+            android:text="Navigate through the app"
+            android:fontFamily="@font/hanken_grotesk"/>
+
+        <Button
+            android:id="@+id/guide2btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/guide1btn"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:background="#00000000"
+            android:textColor="#82AAE3"
+            android:textStyle="bold"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="Check and download
+your payslip
+" />
+
+        <Button
+            android:id="@+id/guide3btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/guide2btn"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="#00000000"
+            android:textColor="#82AAE3"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="Book and review holidays
+"/>
+
+        <Button
+            android:id="@+id/guide4btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/guide3btn"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="#00000000"
+            android:fontFamily="@font/hanken_grotesk"
+            android:textColor="#82AAE3"
+            android:text="Check upcoming rotas"/>
+
+        <Button
+            android:id="@+id/guide5btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/guide4btn"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="#00000000"
+            android:fontFamily="@font/hanken_grotesk"
+            android:textColor="#82AAE3"
+            android:text="View company
+messages"/>
+
+        <Button
+            android:id="@+id/contact"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:text="Contact us"
+            android:layout_below="@+id/guide5btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
+            android:backgroundTint="#82AAE3"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
