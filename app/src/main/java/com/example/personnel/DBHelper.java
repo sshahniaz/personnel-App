@@ -1,11 +1,18 @@
 package com.example.personnel;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
+import com.example.personnel.DashboardAndMessagesModelClasses.ClockInModel;
+import com.example.personnel.DashboardAndMessagesModelClasses.ClockOutModel;
+import com.example.personnel.DashboardAndMessagesModelClasses.MessageModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -106,6 +113,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public final String clockInTime = "clock_in_time";
     public final String clockOutTime = "clock_out_time";
 
+
     public final String createAttendanceTable = "CREATE TABLE " + attendanceTable + " ("
             + attendanceId + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + employeeIdFK + " INTEGER,"
@@ -120,6 +128,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public final String rotaTable = "rota";
     public final String rotaId = "rota_id";
+
+    public final String day = "rota_day";
     public final String startTime = "start_time";
     public final String endTime = "end_time";
     public final String breakTime = "break_time";
@@ -127,7 +137,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public final String createRotaTable = "CREATE TABLE " + rotaTable + " ("
             + rotaId + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + employeeIdFK + " INTEGER,"
-            + date + " TEXT,"
+            + day + " TEXT,"
             + startTime + " TEXT,"
             + endTime + " TEXT,"
             + breakTime + " TEXT,"
@@ -138,10 +148,18 @@ public class DBHelper extends SQLiteOpenHelper {
     //Messages table -- for the messages
     public final String messagesTable = "messages";
     public final String messageId = "message_id";
+    public final String messageTitle = "message_title";
+
+    public final String messageDate = "message_date";
+
+    public final String messageSubject = "message_subject";
     public final String messageTxt = "message_txt";
 
     public final String createMessagesTable = "CREATE TABLE " + messagesTable + " ("
             + messageId + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + messageTitle + " TEXT,"
+            + messageDate + " TEXT,"
+            + messageSubject + " TEXT,"
             + messageTxt + " TEXT"
             + ")";
 
@@ -175,19 +193,95 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Cursor getAlPayslip(int i) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String select = "SELECT * FROM " + payrollTable + " WHERE employee_id = 1 ORDER BY payroll_id DESC";
-        Cursor res = db.rawQuery(select, null);
-        return res;
+//    Method-- to insert clock-in values to attendance table
+
+    public  boolean addClockInData(ClockInModel clockIn) {
+
+//        create db object
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+//        create content values object
+
+        ContentValues inValues = new ContentValues();
+
+//        pass values to content values object from clock-in model class
+        inValues.put(employeeId, clockIn.getId());
+        inValues.put(date, clockIn.getDate());
+        inValues.put(clockInTime, clockIn.getClockInTime());
+
+//        insert values to attendance table
+        long insert = db.insert(attendanceTable, null, inValues);
+
+//        test for success
+        if (insert==-1) {
+            return false;
+        } else {
+
+            return true;
+        }
+
     }
 
-    // setting placeholders in the SQL query and pass the actual value when the user is logged in
-//    public Cursor getAlPayslip(int userId) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        String select = "SELECT * FROM " + payrollTable + " WHERE employee_id = ? ORDER BY payroll_id DESC";
-//        String[] selectionArgs = {String.valueOf(userId)};
-//        Cursor res = db.rawQuery(select, selectionArgs);
-//        return res;
-//    }
+    //        method-- update clock-out time in attendance table
+
+    public boolean updateClockOutTime(ClockOutModel clockOut) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues outValues = new ContentValues();
+
+        outValues.put(clockOutTime, clockOut.getClockOutTime());
+        outValues.put(employeeId, clockOut.getId());
+
+        int result = db.update(attendanceTable, outValues, "date = ? ", new String[]{clockOut.getDate()});
+        return result > 0;
+    }
+
+// method-- insert values to messages table
+    public boolean setMessages(List<MessageModel> msgList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        boolean success = true;
+        try {
+            for (MessageModel msg : msgList) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(messageTitle, msg.getMessageTitle());
+                contentValues.put(messageDate, msg.getMessageDate());
+                contentValues.put(messageSubject, msg.getMessageSubject());
+                contentValues.put(messageTxt, msg.getMessageText());
+                db.insert(messagesTable, null, contentValues);
+            }
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+        } finally {
+            db.close();
+        }
+        return success;
+    }
+
+//    method-- retrieve values from database
+
+    public List<MessageModel> getAllMessages() {
+        List<MessageModel> messageList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = {messageId, messageTitle, messageDate, messageSubject, messageTxt};
+        Cursor c = db.query(messagesTable, columns, null, null, null, null, null);
+
+        if (c != null && c.moveToFirst()) {
+            do {
+                int  messageIdValue = c.getInt(0);
+                String messageTitleValue = c.getString(1);
+                String messageDateValue = c.getString(2);
+                String messageSubjectValue = c.getString(3);
+                String messageTxtValue = c.getString(4);
+                MessageModel msg = new MessageModel(messageIdValue, messageTitleValue, messageDateValue, messageSubjectValue, messageTxtValue);
+                messageList.add(msg);
+            } while (c.moveToNext());
+
+        }
+
+        return messageList;
+
+    }
+
 }
