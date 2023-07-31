@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -55,38 +56,39 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         int item_id=item.getItemId();
         if(item_id==R.id.nav_home)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home_frag()).commit();
-            Intent intent=new Intent(DashBoard.this, DashBoard.class);
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home_frag()).commit();
+            Intent intent=new Intent(this, DashBoard.class);
             startActivity(intent);
 
         }
-        else
+//        else
         if(item_id==R.id.nav_holiday)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Holiday_frag()).commit();
-            Intent intent=new Intent(getApplicationContext(), Holiday.class);
-            startActivity(intent);
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Holiday_frag()).commit();
+//            Intent intent=new Intent(this, Holiday.class);
+//            startActivity(intent);
+            Toast.makeText(this,"works",Toast.LENGTH_SHORT).show();
         }
-        else
+//        else
         if(item_id==R.id.nav_payslip)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Payslip_frag()).commit();
-            Intent intent=new Intent(getApplicationContext(), Payslip.class);
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Payslip_frag()).commit();
+            Intent intent=new Intent(this, Payslip.class);
             startActivity(intent);
         }
-        else
+//        else
         if(item_id==R.id.nav_rota)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Rota_frag()).commit();
-            Intent intent=new Intent(getApplicationContext(), Rota.class);
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Rota_frag()).commit();
+            Intent intent=new Intent(this, Rota.class);
             startActivity(intent);
         }
-        else
+//        else
         if(item_id==R.id.nav_messages)
         {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages_frag()).commit();
-            Intent intent=new Intent(getApplicationContext(), Messages.class);
-            startActivity(intent);
+//            Intent intent=new Intent(this, Messages.class);
+//            startActivity(intent);
         }
         mainLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -101,5 +103,11 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         {
             super.onBackPressed();
         }
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.nav_menu,menu);
+        return true;
     }
 }
