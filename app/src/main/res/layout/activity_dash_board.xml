@@ -107,16 +107,29 @@
 
             </LinearLayout>
 
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/buttonFragment"
-    android:orientation="vertical"
-    >
+<!--<FrameLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:id="@+id/buttonFragment"-->
+<!--    android:orientation="vertical"-->
+<!--    >-->
 
 
-</FrameLayout>
-
+<!--</FrameLayout>-->
+            <Button
+                android:id="@+id/clockInBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/accent"
+                android:shadowColor="#434343"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:text="Clock in"
+                android:textSize="25sp"
+                app:cornerRadius="8sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

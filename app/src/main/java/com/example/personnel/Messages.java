@@ -193,14 +193,14 @@ public class Messages extends AppCompatActivity {
                         "Thank you for your generosity and compassion. Let's make this charity event a grand success!"));
 
 
-
-       boolean success = dbHelper.setMessages(msgList);
 //
-     if (success) {
-           Toast.makeText(Messages.this, "All rows inserted successfully", Toast.LENGTH_SHORT).show();
-       } else {
-           Toast.makeText(Messages.this, "Failed to insert messages", Toast.LENGTH_SHORT).show();
-       }
+//       boolean success = dbHelper.setMessages(msgList);
+////
+//     if (success) {
+//           Toast.makeText(Messages.this, "All rows inserted successfully", Toast.LENGTH_SHORT).show();
+//       } else {
+//           Toast.makeText(Messages.this, "Failed to insert messages", Toast.LENGTH_SHORT).show();
+//       }
 
 
 //return all messages from database
@@ -222,6 +222,8 @@ public class Messages extends AppCompatActivity {
         mainAdapter.setOnItemClickListener(new MessageAdapter.OnItemClickListener() {
             @Override
             public void onDeleteClick(int position) {
+
+//dialog
                 removeItem(position);
             }
         });

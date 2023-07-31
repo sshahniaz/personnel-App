@@ -204,7 +204,7 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues inValues = new ContentValues();
 
 //        pass values to content values object from clock-in model class
-
+        inValues.put(employeeId, clockIn.getId());
         inValues.put(date, clockIn.getDate());
         inValues.put(clockInTime, clockIn.getClockInTime());
 
@@ -228,9 +228,9 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues outValues = new ContentValues();
 
         outValues.put(clockOutTime, clockOut.getClockOutTime());
+        outValues.put(employeeId, clockOut.getId());
 
-        int result = db.update(attendanceTable, outValues, "date = ?", new String[]{clockOut.getDate()});
-
+        int result = db.update(attendanceTable, outValues, "date = ? ", new String[]{clockOut.getDate()});
         return result > 0;
     }
 
