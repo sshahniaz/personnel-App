@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     private boolean validateData(){
 
         if(userName.length() == 0){
