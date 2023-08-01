@@ -1,67 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Menu"
-    android:id="@+id/drawer_layout"
-    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/background">
 
-    tools:openDrawer="start">
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+<!--    <ImageButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/baseline_menu_24"-->
+<!--        android:backgroundTint="#00212529"-->
+<!--        android:layout_gravity="right"/>-->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        >
-
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-            android:fitsSystemWindows="true"
-            >
-            <com.google.android.material.appbar.MaterialToolbar
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/toolbar"
-                android:elevation="4dp"
-                app:navigationIcon="@drawable/baseline_menu_24"
-                android:background="#F5FAFD"
-                android:theme="@style/Theme.App"
-                />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/fragment_container"
-                />
-        </com.google.android.material.appbar.AppBarLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="290dp"
         android:layout_height="match_parent"
-        android:id="@+id/nav_view"
-        app:itemTextAppearance="@style/menu_text_style"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_menu"
-        app:itemIconSize="50dp"
-        app:itemHorizontalPadding="35dp"
-        app:itemVerticalPadding="8dp"
-        app:itemIconTint="@color/widgets"
-        app:itemBackground="@color/item_colors"
-        android:background="@color/background"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="15dp">
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        >
+            <include layout="@layout/nav_header" />
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#00212529"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/homenav"
+                android:id="@+id/homeNav"/>
 
-    </com.google.android.material.navigation.NavigationView>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#00212529"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/holidaynav"
+                android:id="@+id/holidayNav"/>
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#00212529"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/payslipnav"
+                android:id="@+id/payslipNav"/>
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#00212529"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/rotanav"
+                android:id="@+id/rotaNav"/>
 
-</androidx.drawerlayout.widget.DrawerLayout>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#00212529"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/messagesnav"
+                android:id="@+id/messagesNav"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#00212529"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/helpnav"
+                android:id="@+id/helpNav"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#00212529"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/logoutnav"
+                android:id="@+id/logoutNav"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -10,104 +10,68 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class DashBoard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    private DrawerLayout mainLayout;
-
+public class DashBoard extends AppCompatActivity {
+    private ImageButton holiday, rota, messages, payslip;
+    private DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
-        mainLayout=(DrawerLayout) findViewById(R.id.mainLayout);
 
-        androidx.appcompat.widget.Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        holiday=(ImageButton) findViewById(R.id.holidayButton);
+        rota=(ImageButton) findViewById(R.id.rotaButton);
+        payslip=(ImageButton) findViewById(R.id.payslipButton);
+        messages=(ImageButton) findViewById(R.id.messageButton);
 
-        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,mainLayout, toolbar, R.string.open_nav,R.string.close_nav);
-        mainLayout.addDrawerListener(toggle);
-        toggle.syncState();
+        dbHelper=new DBHelper(this);
+        SQLiteDatabase db=dbHelper.getReadableDatabase();
 
-        NavigationView navigationView=(NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ActionBar actionBar=getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
-
-//        if(savedInstanceState==null)
-//        {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home_frag()).commit();
-//            navigationView.setCheckedItem(R.id.nav_home);
-//            Intent intent=new Intent(DashBoard.this, DashBoard.class);
-//            startActivity(intent);
-//        }
-
-    }
-
-
-
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int item_id=item.getItemId();
-        if(item_id==R.id.nav_home)
-        {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home_frag()).commit();
-            Intent intent=new Intent(this, DashBoard.class);
-            startActivity(intent);
-
-        }
-//        else
-        if(item_id==R.id.nav_holiday)
-        {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Holiday_frag()).commit();
-//            Intent intent=new Intent(this, Holiday.class);
-//            startActivity(intent);
-            Toast.makeText(this,"works",Toast.LENGTH_SHORT).show();
-        }
-//        else
-        if(item_id==R.id.nav_payslip)
-        {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Payslip_frag()).commit();
-            Intent intent=new Intent(this, Payslip.class);
-            startActivity(intent);
-        }
-//        else
-        if(item_id==R.id.nav_rota)
-        {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Rota_frag()).commit();
-            Intent intent=new Intent(this, Rota.class);
-            startActivity(intent);
-        }
-//        else
-        if(item_id==R.id.nav_messages)
-        {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages_frag()).commit();
-//            Intent intent=new Intent(this, Messages.class);
-//            startActivity(intent);
-        }
-        mainLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
-    @Override
-    public void onBackPressed() {
-        if(mainLayout.isDrawerOpen(GravityCompat.START))
-        {
-            mainLayout.closeDrawer(GravityCompat.START);
-        }
-        else
-        {
-            super.onBackPressed();
-        }
+        holiday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(DashBoard.this, Holiday.class);
+                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+                startActivity(intent);
+            }
+        });
+        rota.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(DashBoard.this, Rota.class);
+                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+                startActivity(intent);
+            }
+        });
+        messages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(DashBoard.this, Messages.class);
+                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+                startActivity(intent);
+            }
+        });
+        payslip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(DashBoard.this, Payslip.class);
+                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+                startActivity(intent);
+            }
+        });
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-        getMenuInflater().inflate(R.menu.nav_menu,menu);
-        return true;
-    }
+
+
+
+
+
 }
