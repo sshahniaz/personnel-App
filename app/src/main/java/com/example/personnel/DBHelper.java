@@ -242,4 +242,60 @@ public class DBHelper extends SQLiteOpenHelper {
         return rotaList;
 
     }
+
+    public List<Rota_Model> getWeek3() {
+        List<Rota_Model> rotaList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = {rotaId,rotaDate, startTime, endTime};
+        Cursor c = db.query(rotaTable, columns, null, null, null, null, null);
+
+
+        int count=0;
+        if (c != null) {
+            c.moveToPosition(14);
+            do{
+                int  rotaIdValue = c.getInt(0);
+
+                String rotaDayValue = c.getString(1);
+                String rotaStartValue = c.getString(2);
+                String rotaEndValue = c.getString(3);
+
+                Rota_Model msg = new Rota_Model(rotaIdValue, rotaDayValue, rotaStartValue, rotaEndValue );
+                rotaList.add(msg);
+
+                count++;
+            }while(c.moveToNext() && count<7);
+        }
+        return rotaList;
+
+    }
+
+    public List<Rota_Model> getWeek4() {
+        List<Rota_Model> rotaList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = {rotaId,rotaDate, startTime, endTime};
+        Cursor c = db.query(rotaTable, columns, null, null, null, null, null);
+
+
+        int count=0;
+        if (c != null) {
+            c.moveToPosition(21);
+            do{
+                int  rotaIdValue = c.getInt(0);
+
+                String rotaDayValue = c.getString(1);
+                String rotaStartValue = c.getString(2);
+                String rotaEndValue = c.getString(3);
+
+                Rota_Model msg = new Rota_Model(rotaIdValue, rotaDayValue, rotaStartValue, rotaEndValue );
+                rotaList.add(msg);
+
+                count++;
+            }while(c.moveToNext() && count<7);
+        }
+        return rotaList;
+
+    }
 }

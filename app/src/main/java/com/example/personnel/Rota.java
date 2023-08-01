@@ -25,6 +25,8 @@ public class Rota extends AppCompatActivity {
         DBHelper dbHelper2=new DBHelper(Rota.this);
         rotaList=dbHelper2.getWeek1();
         rotaList2=dbHelper2.getWeek2();
+        rotaList3=dbHelper2.getWeek3();
+        rotaList4=dbHelper2.getWeek4();
 
 
    //set adapter to the recycler view
@@ -45,10 +47,12 @@ public class Rota extends AppCompatActivity {
         recyclerView2.setHasFixedSize(true);
         recyclerView2.setAdapter(week2Adapter);
 
+        week3Adapter=new Rota_adapter(rotaList3);
         recyclerView3.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
         recyclerView3.setHasFixedSize(true);
         recyclerView3.setAdapter(week3Adapter);
 
+        week4Adapter=new Rota_adapter(rotaList4);
         recyclerView4.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
         recyclerView4.setHasFixedSize(true);
         recyclerView4.setAdapter(week4Adapter);
