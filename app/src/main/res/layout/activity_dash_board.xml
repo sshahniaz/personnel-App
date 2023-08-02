@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:id="@+id/mainLayout"
     android:weightSum="2"
+
     >
 
     <androidx.cardview.widget.CardView
@@ -155,10 +156,11 @@
 
     </androidx.cardview.widget.CardView>
 
+<!--    Bottom card layout-->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="667dp"
-        android:layout_marginTop="-60dp"
+        android:layout_marginTop="-80dp"
         android:backgroundTint="#F5FAFD"
         app:cardCornerRadius="40dp"
         app:cardElevation="20dp"

@@ -7,7 +7,25 @@
     tools:context=".Rota"
     android:orientation="vertical">
 
+       <androidx.appcompat.widget.LinearLayoutCompat
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
 
+           <ImageButton
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/outline_info_24"
+               android:backgroundTint="#00212529"
+               android:layout_gravity="left"
+               android:layout_marginRight="300dp"/>
+           <ImageButton
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/baseline_menu_24"
+               android:backgroundTint="#00212529"
+               android:layout_gravity="end"/>
+       </androidx.appcompat.widget.LinearLayoutCompat>
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,12 +35,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="40dp">
-<!--CardView Week1-->
-    <androidx.cardview.widget.CardView
+        >
+
+
+<!--Week1-->
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:cardCornerRadius="40dp"
+        android:layout_height="250dp"
+        android:background="@drawable/hero"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,15 +82,15 @@
 
         </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-    <!--CardView Week2-->
-    <androidx.cardview.widget.CardView
+    <!--Week2-->
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:cardCornerRadius="40dp"
-        app:cardElevation="5dp">
+        android:layout_height="250dp"
+        android:background="@drawable/shadow"
+        android:layout_marginTop="-30dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -107,15 +127,15 @@
 
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-<!--    CardView week3-->
-    <androidx.cardview.widget.CardView
+<!--    week3-->
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:cardCornerRadius="40dp"
-        app:cardElevation="5dp">
+        android:layout_height="250dp"
+        android:background="@drawable/shadow"
+        android:layout_marginTop="-30dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -152,15 +172,15 @@
 
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-<!--    CardView Week4-->
-    <androidx.cardview.widget.CardView
+<!--     Week4-->
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:cardCornerRadius="40dp"
-        app:cardElevation="5dp">
+        android:layout_height="250dp"
+        android:background="@drawable/shadow"
+        android:layout_marginTop="-30dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -195,7 +215,7 @@
 
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>
 

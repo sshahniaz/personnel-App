@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Menu"
     android:orientation="vertical"
-    android:background="@color/background">
+    android:background="@drawable/shadow"
+    android:layout_marginTop="5dp">
 
 <!--    <ImageButton-->
 <!--        android:layout_width="wrap_content"-->
@@ -14,11 +15,6 @@
 <!--        android:src="@drawable/baseline_menu_24"-->
 <!--        android:backgroundTint="#00212529"-->
 <!--        android:layout_gravity="right"/>-->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="40dp"
-        app:cardElevation="15dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -30,17 +26,18 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:backgroundTint="#00212529"
                 android:layout_marginLeft="40dp"
                 android:src="@drawable/homenav"
                 android:id="@+id/homeNav"
+
                 />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:backgroundTint="#00212529"
                 android:layout_marginLeft="40dp"
                 android:src="@drawable/holidaynav"
@@ -49,16 +46,17 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:backgroundTint="#00212529"
                 android:layout_marginLeft="40dp"
                 android:src="@drawable/payslipnav"
-                android:id="@+id/payslipNav"/>
+                android:id="@+id/payslipNav"
+                />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:backgroundTint="#00212529"
                 android:layout_marginLeft="40dp"
                 android:src="@drawable/rotanav"
@@ -67,29 +65,29 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:backgroundTint="#00212529"
                 android:layout_marginLeft="40dp"
                 android:src="@drawable/messagesnav"
                 android:id="@+id/messagesNav"/>
 
+<!--            <ImageButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:backgroundTint="#00212529"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:src="@drawable/helpnav"-->
+<!--                android:id="@+id/helpNav"-->
+<!--                />-->
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="15dp"
-                android:backgroundTint="#00212529"
-                android:layout_marginLeft="40dp"
-                android:src="@drawable/helpnav"
-                android:id="@+id/helpNav"/>
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="45dp"
                 android:backgroundTint="#00212529"
                 android:layout_marginLeft="40dp"
                 android:src="@drawable/logoutnav"
                 android:id="@+id/logoutNav"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+    </LinearLayout>

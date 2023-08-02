@@ -30,7 +30,7 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        helpNav=(ImageButton) findViewById(R.id.helpNav);
+//        helpNav=(ImageButton) findViewById(R.id.helpNav);
         homeNav=(ImageButton) findViewById(R.id.homeNav);
         holidayNav=(ImageButton) findViewById(R.id.holidayNav);
         rotaNav=(ImageButton) findViewById(R.id.rotaNav);
@@ -59,14 +59,14 @@ public class Menu extends AppCompatActivity {
         }
 
 
-        helpNav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(Menu.this, Help.class);
-//                intent.putExtra(db.employeeId,cursor.getInt(3));
-                startActivity(intent);
-            }
-        });
+//        helpNav.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(Menu.this, Help.class);
+////                intent.putExtra(db.employeeId,cursor.getInt(3));
+//                startActivity(intent);
+//            }
+//        });
 
         homeNav.setOnClickListener(new View.OnClickListener() {
             @Override
