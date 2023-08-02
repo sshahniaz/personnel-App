@@ -42,11 +42,15 @@ public class Holiday extends AppCompatActivity {
     TextView dateStartDay, dateStartMonth, dateStartYear, dateEndDay, dateEndMonth, dateEndYear;
     EditText holidayReason;
     Button bookBtn;
+
+    private int empID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_holiday);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
+
 
         //Display Holidays
         holidayCardList = findViewById(R.id.holiday_cards_list);
@@ -54,7 +58,11 @@ public class Holiday extends AppCompatActivity {
         SQLiteDatabase listDB = holDB.getReadableDatabase();
         List<HolidayCardDataModel> dataList = new ArrayList<>();
 
-        Cursor cursor = listDB.rawQuery("select * from "+holDB.leaveTable+" where "+holDB.employeeId+" = ?",new String[]{"1"});
+        //Get Employee id from the intents
+        Bundle extras = getIntent().getExtras();
+        empID = extras.getInt(holDB.employeeId);
+
+        Cursor cursor = listDB.rawQuery("select * from "+holDB.leaveTable+" where "+holDB.employeeId+" = ?",new String[]{Integer.toString(empID)});
         if(cursor.moveToLast()){
             do{
                 dataList.add(new HolidayCardDataModel(cursor.getString(2),
