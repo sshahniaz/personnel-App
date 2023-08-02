@@ -15,13 +15,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
 public class Menu extends AppCompatActivity {
-
+    public final String currentPageKey = "currentPage";
     private ImageButton holidayNav, homeNav, helpNav, rotaNav, messagesNav, payslipNav, logoutNav;
     private DBHelper dbHelper;
+    private TextView headerText;
     private int employeeID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +38,25 @@ public class Menu extends AppCompatActivity {
         payslipNav=(ImageButton) findViewById(R.id.payslipNav);
         logoutNav=(ImageButton) findViewById(R.id.logoutNav);
 
+        //Get header
+        headerText = findViewById(R.id.header_text);
+
+
+
         dbHelper=new DBHelper(this);
+
+        //Get Extras for style and employee id
+
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null) {
+//            employeeID = extras.getInt(dbHelper.employeeId);
+//        }
+
         SQLiteDatabase db=dbHelper.getReadableDatabase();
-//        Cursor cursor=db.query(dbHelper.employeeTable, columns, null, null, null, null, null);
+        Cursor cursor=db.rawQuery("select * from "+dbHelper.employeeTable+" where "+dbHelper.employeeId+" = ?", new String[]{"1"});
+        if(cursor.moveToFirst()){
+            headerText.setText("Welcome "+cursor.getString(1));
+        }
 
 
         helpNav.setOnClickListener(new View.OnClickListener() {

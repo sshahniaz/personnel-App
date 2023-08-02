@@ -34,7 +34,8 @@
                 android:backgroundTint="#00212529"
                 android:layout_marginLeft="40dp"
                 android:src="@drawable/homenav"
-                android:id="@+id/homeNav"/>
+                android:id="@+id/homeNav"
+                />
 
             <ImageButton
                 android:layout_width="wrap_content"
