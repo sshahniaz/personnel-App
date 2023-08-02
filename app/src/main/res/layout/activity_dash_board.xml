@@ -11,6 +11,7 @@
 
     >
 
+
     <!--Action bar layout-->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -31,6 +32,8 @@
             android:backgroundTint="#00212529"
             android:layout_gravity="end"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="350dp"

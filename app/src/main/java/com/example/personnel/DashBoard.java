@@ -31,7 +31,8 @@ import java.util.Calendar;
 
 
 public class DashBoard extends AppCompatActivity {
-boolean isClockedIn = false;
+    boolean isClockedIn = false;
+    public final String CURRENT_PAGE_KEY = "currentPage";
     Button clockBtn;
     TextView datetime, datetime2, shiftDay, shiftStart, shiftEnd;
 
@@ -41,7 +42,7 @@ boolean isClockedIn = false;
     String dateString, timeString;
     private int empID;
 
-    private ImageButton holiday, rota, messages, payslip;
+    private ImageButton holiday, rota, messages, payslip, menuBtn;
     private DBHelper dbHelper;
 
     @Override
@@ -165,6 +166,18 @@ boolean isClockedIn = false;
             public void onClick(View view) {
                 Intent intent=new Intent(DashBoard.this, Payslip.class);
 //                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+                startActivity(intent);
+            }
+        });
+
+        //Menu Btn
+        menuBtn = findViewById(R.id.menu_btn);
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashBoard.this, Menu.class);
+                intent.putExtra(CURRENT_PAGE_KEY, "dashBoard");
+                intent.putExtra(dbHelper.employeeId, empID);
                 startActivity(intent);
             }
         });
