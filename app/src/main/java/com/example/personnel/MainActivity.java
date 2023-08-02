@@ -3,6 +3,7 @@ package com.example.personnel;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -17,12 +18,24 @@ public class MainActivity extends AppCompatActivity {
 
     EditText userName,pswdInput;
     Button login;
+
+    private DBHelper personnelDB;
     //for checking if all the fields are valid are valid.
     private boolean isAllChecked = false;
+    private static final String LOGIN_PREFES_NAME = "login";
+    private static final String LOGIN_SHOWN_KEY = "login";
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         //Get Views
@@ -37,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 //Checks for invalid data and does not proceed until all the data is valid
                 isAllChecked = validateData();
                 if (isAllChecked){
-                    DBHelper personnelDB = new DBHelper(getApplicationContext());
+                    personnelDB = new DBHelper(getApplicationContext());
                     SQLiteDatabase db = personnelDB.getReadableDatabase();
                     Cursor cursor = db.rawQuery("select * from "+personnelDB.usersTable+" where "+personnelDB.username+" = ?",new String[]{userName.getText().toString().trim()});
                     if(cursor.moveToFirst()){
@@ -98,6 +111,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    private void launchDasboard(int id) {
+        // Save that the tutorial has been shown
+        SharedPreferences preferences = getSharedPreferences(LOGIN_PREFES_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(LOGIN_SHOWN_KEY, true);
+        editor.putInt(personnelDB.employeeId, id);
+        editor.apply();
+
+        // Go to the main activity or home screen
+        Intent intent = new Intent(MainActivity.this, DashBoard.class);
+        startActivity(intent);
+        finish();
     }
 }
 
