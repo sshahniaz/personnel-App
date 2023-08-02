@@ -28,7 +28,7 @@
         </activity>
         <activity
             android:name=".Messages"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".Rota"
             android:exported="false" />
