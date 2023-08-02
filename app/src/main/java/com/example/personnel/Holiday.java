@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -34,6 +37,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Holiday extends AppCompatActivity {
+    private static final String LOGIN_PREF = "login_prefs";
+    private static final String LOGIN_PREF_UID_KEY= "uid_key";
     RecyclerView holidayCardList;
 
     MaterialButtonToggleGroup holidayBtnGroup;
@@ -65,9 +70,18 @@ public class Holiday extends AppCompatActivity {
 
         //Get Employee id from the intents
         Bundle extras = getIntent().getExtras();
-        empID = extras.getInt(holDB.employeeId);
+        if (extras != null) {
+            empID = extras.getInt(holDB.employeeId);
+            Toast.makeText(this,"Empid: "+empID,Toast.LENGTH_SHORT).show();
+        }
+        //Checks if the empID is null or 0 and searches preferences for the correct ID;
+        if(empID==0){
+            SharedPreferences preferences = getSharedPreferences(LOGIN_PREF, Context.MODE_PRIVATE);
+            empID = preferences.getInt(LOGIN_PREF_UID_KEY,0);
+        }
 
-        Cursor cursor = listDB.rawQuery("select * from "+holDB.leaveTable+" where "+holDB.employeeId+" = ?",new String[]{Integer.toString(empID)});
+
+        Cursor cursor = listDB.rawQuery("select * from "+holDB.leaveTable+" where "+holDB.employeeId+"=?;",new String[]{String.valueOf(empID)});
         if(cursor.moveToLast()){
             do{
                 dataList.add(new HolidayCardDataModel(cursor.getString(2),
@@ -82,6 +96,7 @@ public class Holiday extends AppCompatActivity {
 
         holidayCardList.setAdapter(adapter);
         holidayCardList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        adapter.notifyDataSetChanged();
         //Book Holiday
 
         //Set Current Date on start
@@ -241,7 +256,7 @@ public class Holiday extends AppCompatActivity {
 
                 //Leave status is int so 0 == Pending, 1 == Approved, -1 == Rejected;
                 ContentValues values = new ContentValues();
-                values.put(leaveDB.employeeId, 1);
+                values.put(leaveDB.employeeId, empID);
                 values.put(leaveDB.startDate,(dateStartDay.getText().toString()+"-"+dateStartMonth.getText().toString()+"-"+dateStartYear.getText().toString()));
                 values.put(leaveDB.endDate,(dateEndDay.getText().toString()+"-"+dateEndMonth.getText().toString()+"-"+dateEndYear.getText().toString()));
                 values.put(leaveDB.leaveType,selLeaveType);
@@ -267,7 +282,7 @@ public class Holiday extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Holiday.this, Menu.class);
-                intent.putExtra(CURRENT_PAGE_KEY, "rota");
+                intent.putExtra(CURRENT_PAGE_KEY, "holiday");
                 intent.putExtra(holDB.employeeId, empID);
                 startActivity(intent);
             }
