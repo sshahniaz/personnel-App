@@ -10,17 +10,33 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class Help extends AppCompatActivity {
     Button guide1btn, guide2btn, guide3btn, guide4btn, guide5btn, backGuide1, backGuide2, backGuide3, backGuide4, backGuide5, contact;
+    private int empID;
+    ImageButton menuBtn;
 
+    DBHelper dbHelper;
+    public final String CURRENT_PAGE_KEY = "currentPage";
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
+        dbHelper=new DBHelper(this);
+        menuBtn = findViewById(R.id.menu_btn);
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Help.this, Menu.class);
+                intent.putExtra(CURRENT_PAGE_KEY, "rota");
+                intent.putExtra(dbHelper.employeeId, empID);
+                startActivity(intent);
+            }
+        });
 
         Dialog guide1 = new Dialog(this);
         guide1.setContentView(R.layout.guide1_pop_up);

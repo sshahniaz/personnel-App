@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import java.util.List;
 
@@ -13,7 +16,10 @@ public class Rota extends AppCompatActivity {
     RecyclerView recyclerView, recyclerView2,recyclerView3,recyclerView4;
     Rota_adapter week1Adapter, week2Adapter, week3Adapter, week4Adapter;
     List<Rota_Model> rotaList, rotaList2, rotaList3, rotaList4;
+    ImageButton menuBtn;
 
+    public final String CURRENT_PAGE_KEY = "currentPage";
+    private int empID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +34,16 @@ public class Rota extends AppCompatActivity {
         rotaList3=dbHelper2.getWeek3();
         rotaList4=dbHelper2.getWeek4();
 
-
+        menuBtn = findViewById(R.id.menu_btn);
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Rota.this, Menu.class);
+                intent.putExtra(CURRENT_PAGE_KEY, "rota");
+                intent.putExtra(dbHelper2.employeeId, empID);
+                startActivity(intent);
+            }
+        });
    //set adapter to the recycler view
         week1Adapter=new Rota_adapter(rotaList);
         recyclerView=(RecyclerView) findViewById(R.id.reciclerView);
@@ -59,9 +74,5 @@ public class Rota extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-//        getMenuInflater().inflate(R.menu.nav_menu,menu);
-//        return true;
-//    }
+
 }

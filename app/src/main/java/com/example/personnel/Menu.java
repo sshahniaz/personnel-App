@@ -21,7 +21,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Menu extends AppCompatActivity {
     public final String CURRENT_PAGE_KEY = "currentPage";
-    private ImageButton holidayNav, homeNav, info, rotaNav, messagesNav, payslipNav, logoutNav;
+    private ImageButton holidayNav, homeNav, info, rotaNav, messagesNav, payslipNav, logoutNav, backArrow;
     private DBHelper dbHelper;
     private TextView headerText;
     private int employeeID;
@@ -38,6 +38,8 @@ public class Menu extends AppCompatActivity {
         messagesNav=(ImageButton) findViewById(R.id.messagesNav);
         payslipNav=(ImageButton) findViewById(R.id.payslipNav);
         logoutNav=(ImageButton) findViewById(R.id.logoutNav);
+        backArrow=(ImageButton) findViewById(R.id.backArrow);
+
 
         //Get header
         headerText = findViewById(R.id.header_text);
@@ -55,13 +57,40 @@ public class Menu extends AppCompatActivity {
             prevPage = extras.getString(CURRENT_PAGE_KEY);
         }
 
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(prevPage.equals("dashBoard")){
+                    Intent intent=new Intent(Menu.this, DashBoard.class);
+                    startActivity(intent);
+
+                }
+                if(prevPage.equals("rota")){
+                    Intent intent=new Intent(Menu.this, Rota.class);
+                    startActivity(intent);
+
+                }
+                if(prevPage.equals("payslip")){
+                    Intent intent=new Intent(Menu.this, Payslip.class);
+                    startActivity(intent);
+
+                }
+                if(prevPage.equals("holiday")){
+                    Intent intent=new Intent(Menu.this, Holiday.class);
+                    startActivity(intent);
+
+                }
+                if(prevPage.equals("messages")){
+                    Intent intent=new Intent(Menu.this, Messages.class);
+                    startActivity(intent);
+
+                }
+
+            }
+        });
         //Style buttons with if
-        if(prevPage.equals("dashBoard")){
 
-            //Button change style here
-            //Can be same for all buttons
-
-        }
 
 
         SQLiteDatabase db=dbHelper.getReadableDatabase();

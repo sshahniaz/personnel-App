@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -25,6 +27,10 @@ public class Messages extends AppCompatActivity {
     RecyclerView recyclerViewMsg;
     MessageAdapter mainAdapter;
     List<MessageModel> messageList;
+
+    public final String CURRENT_PAGE_KEY = "currentPage";
+    private int empID;
+    private ImageButton menuBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -236,6 +242,17 @@ public class Messages extends AppCompatActivity {
             }
         });
         recyclerViewMsg.setAdapter(mainAdapter);
+
+        menuBtn = findViewById(R.id.menu_btn);
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Messages.this, Menu.class);
+                intent.putExtra(CURRENT_PAGE_KEY, "messages");
+                intent.putExtra(dbHelper.employeeId, empID);
+                startActivity(intent);
+            }
+        });
     }
 
     public void showCustomDialog(int position) {
@@ -268,10 +285,5 @@ public class Messages extends AppCompatActivity {
 
         alertDialog.show();
     }
-//    @Override
-//    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-//        getMenuInflater().inflate(R.menu.nav_menu,menu);
-//        return true;
-//
-//    }
+
     }

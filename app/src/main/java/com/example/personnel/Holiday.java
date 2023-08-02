@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,8 +44,11 @@ public class Holiday extends AppCompatActivity {
     TextView dateStartDay, dateStartMonth, dateStartYear, dateEndDay, dateEndMonth, dateEndYear;
     EditText holidayReason;
     Button bookBtn;
-
     private int empID;
+    ImageButton menuBtn;
+    public final String CURRENT_PAGE_KEY = "currentPage";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -257,7 +262,16 @@ public class Holiday extends AppCompatActivity {
             }
         });
 
-
+        menuBtn = findViewById(R.id.menu_btn);
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Holiday.this, Menu.class);
+                intent.putExtra(CURRENT_PAGE_KEY, "rota");
+                intent.putExtra(holDB.employeeId, empID);
+                startActivity(intent);
+            }
+        });
 
 
 

@@ -140,7 +140,7 @@ public class DashBoard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(DashBoard.this, Holiday.class);
-//                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+                intent.putExtra(dbHelper.employeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
@@ -157,7 +157,7 @@ public class DashBoard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(DashBoard.this, Messages.class);
-//                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+//                intent.putExtra(dbHelper.employeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });

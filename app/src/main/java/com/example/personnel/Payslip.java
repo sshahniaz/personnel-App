@@ -5,9 +5,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,6 +24,9 @@ public class Payslip extends AppCompatActivity {
     private ListView listView;
     private ArrayList<String> dataList;
     private static final int REQUEST_WRITE_EXTERNAL_STORAGE = 1;
+    private ImageButton menuBtn;
+    public final String CURRENT_PAGE_KEY = "currentPage";
+    private int empID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,17 @@ public class Payslip extends AppCompatActivity {
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     REQUEST_WRITE_EXTERNAL_STORAGE);
         }
+
+        menuBtn = findViewById(R.id.menu_btn);
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Payslip.this, Menu.class);
+                intent.putExtra(CURRENT_PAGE_KEY, "payslip");
+                intent.putExtra(db.employeeId, empID);
+                startActivity(intent);
+            }
+        });
     }
 
     public void viewAll() {
@@ -59,10 +76,5 @@ public class Payslip extends AppCompatActivity {
             }
         }
     }
-    @Override
-    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-        getMenuInflater().inflate(R.menu.nav_menu,menu);
-        return true;
 
-    }
 }
