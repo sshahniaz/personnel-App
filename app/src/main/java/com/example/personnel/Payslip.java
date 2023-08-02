@@ -17,9 +17,9 @@ import java.util.ArrayList;
 
 public class Payslip extends AppCompatActivity {
 
-    DBHelper db;
-    ListView listView;
-    ArrayList<String> dataList;
+    private DBHelper db;
+    private ListView listView;
+    private ArrayList<String> dataList;
     private static final int REQUEST_WRITE_EXTERNAL_STORAGE = 1;
 
     @Override
