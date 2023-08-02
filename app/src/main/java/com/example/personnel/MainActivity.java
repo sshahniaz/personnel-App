@@ -2,7 +2,9 @@ package com.example.personnel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -15,8 +17,20 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 //    This is the login page / main page
 
-    EditText userName,pswdInput;
-    Button login;
+    //TODO:Shared Preferences for login
+    //Shared preferences keys and constants
+
+    private static final String LOGIN_PREF = "login_prefs";
+    private static final String LOGIN_PREF_CHECK_KEY= "check_key";
+    private static final String LOGIN_PREF_UID_KEY= "uid_key";
+
+    private SharedPreferences pref;
+    //Setting default false so that user can get to login page.
+    private boolean prefCheck = false;
+    private int uid;
+
+    private EditText userName,pswdInput;
+    private Button login;
     //for checking if all the fields are valid are valid.
     private boolean isAllChecked = false;
     @Override
@@ -30,6 +44,16 @@ public class MainActivity extends AppCompatActivity {
         pswdInput = findViewById(R.id.pswd_input);
         login = findViewById(R.id.login);
 
+        //init shared prefs
+        pref = getSharedPreferences(LOGIN_PREF, Context.MODE_PRIVATE);
+        prefCheck = pref.getBoolean(LOGIN_PREF_CHECK_KEY, false);
+        uid = pref.getInt(LOGIN_PREF_UID_KEY,Integer.parseInt(null));
+
+        if(prefCheck){
+            Intent intent = new Intent(MainActivity.this, DashBoard.class);
+            intent.putExtra("employee_id",uid);
+            startActivity(intent);
+        }
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +72,12 @@ public class MainActivity extends AppCompatActivity {
                         if((pswdInput.getText().toString().trim()).equals(cursor.getString(2))){
 
                             Toast.makeText(getApplicationContext(),"Password VAlid empID: "+cursor.getInt(3),Toast.LENGTH_SHORT).show();
+                            //Make SharedPref Editor Object for editing.
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putBoolean(LOGIN_PREF_CHECK_KEY, true);
+                            //Saving uid for next use.
+                            editor.putInt(LOGIN_PREF_UID_KEY,cursor.getInt(3));
+                            editor.apply();
 
                             //TODO: get employee id and transfer to next page
 
