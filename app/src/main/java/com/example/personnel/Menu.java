@@ -55,7 +55,7 @@ public class Menu extends AppCompatActivity {
         SQLiteDatabase db=dbHelper.getReadableDatabase();
         Cursor cursor=db.rawQuery("select * from "+dbHelper.employeeTable+" where "+dbHelper.employeeId+" = ?", new String[]{"1"});
         if(cursor.moveToFirst()){
-            headerText.setText(cursor.getString(1));
+            headerText.setText("Welcome "+cursor.getString(1));
         }
 
 
