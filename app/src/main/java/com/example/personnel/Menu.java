@@ -38,14 +38,14 @@ public class Menu extends AppCompatActivity {
 
         dbHelper=new DBHelper(this);
         SQLiteDatabase db=dbHelper.getReadableDatabase();
-        Cursor cursor=db.query(employeeTable, columns, null, null, null, null, null);
+        Cursor cursor=db.query(dbHelper.employeeTable, columns, null, null, null, null, null);
 
 
         helpNav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Menu.this, Help.class);
-                intent.putExtra(db.employeeId,cursor.getInt(3));
+//                intent.putExtra(db.employeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
@@ -54,7 +54,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Menu.this, DashBoard.class);
-                intent.putExtra(db.employeeId,cursor.getInt(3));
+//                intent.putExtra(db.employeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
@@ -62,7 +62,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Menu.this, Holiday.class);
-                intent.putExtra(db.employeeId,cursor.getInt(3));
+//                intent.putExtra(db.employeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
@@ -70,7 +70,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Menu.this, Rota.class);
-                intent.putExtra(db.employeeId,cursor.getInt(3));
+//                intent.putExtra(db.employeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
@@ -78,7 +78,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Menu.this, Messages.class);
-                intent.putExtra(db.employeeId,cursor.getInt(3));
+//                intent.putExtra(db.employeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
@@ -86,7 +86,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Menu.this, Payslip.class);
-                intent.putExtra(db.employeeId,cursor.getInt(3));
+//                intent.putExtra(db.employeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
@@ -94,7 +94,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Menu.this, MainActivity.class);
-                intent.putExtra(db.employeeId,cursor.getInt(3));
+//                intent.putExtra(db.employeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });

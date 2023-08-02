@@ -32,7 +32,7 @@ import java.util.Calendar;
 
 public class DashBoard extends AppCompatActivity {
 boolean isClockedIn = false;
-    Button clockBtn, messages;
+    Button clockBtn;
     TextView datetime, datetime2, shiftDay, shiftStart, shiftEnd;
 
     boolean clockedIn = true;
@@ -133,14 +133,13 @@ boolean isClockedIn = false;
         payslip=(ImageButton) findViewById(R.id.payslipButton);
         messages=(ImageButton) findViewById(R.id.messageButton);
 
-        dbHelper=new DBHelper(this);
-        SQLiteDatabase db=dbHelper.getReadableDatabase();
+
 
         holiday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(DashBoard.this, Holiday.class);
-                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+//                intent.putExtra(db.empoyeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
@@ -149,7 +148,7 @@ boolean isClockedIn = false;
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(DashBoard.this, Rota.class);
-                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+//                intent.putExtra(db.empoyeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
@@ -157,7 +156,7 @@ boolean isClockedIn = false;
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(DashBoard.this, Messages.class);
-                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+//                intent.putExtra(db.empoyeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
@@ -165,7 +164,7 @@ boolean isClockedIn = false;
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(DashBoard.this, Payslip.class);
-                intent.putExtra(db.empoyeeId,cursor.getInt(3));
+//                intent.putExtra(db.empoyeeId,cursor.getInt(3));
                 startActivity(intent);
             }
         });
