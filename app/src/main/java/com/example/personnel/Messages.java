@@ -1,10 +1,18 @@
 package com.example.personnel;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.personnel.DashboardAndMessagesModelClasses.MessageModel;
@@ -21,6 +29,8 @@ public class Messages extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messages);
+
+
 
 //        Insert values
   DBHelper dbHelper = new DBHelper(Messages.this);
@@ -193,14 +203,14 @@ public class Messages extends AppCompatActivity {
                         "Thank you for your generosity and compassion. Let's make this charity event a grand success!"));
 
 
+
+       boolean success = dbHelper.setMessages(msgList);
 //
-//       boolean success = dbHelper.setMessages(msgList);
-////
-//     if (success) {
-//           Toast.makeText(Messages.this, "All rows inserted successfully", Toast.LENGTH_SHORT).show();
-//       } else {
-//           Toast.makeText(Messages.this, "Failed to insert messages", Toast.LENGTH_SHORT).show();
-//       }
+     if (success) {
+           Toast.makeText(Messages.this, "All rows inserted successfully", Toast.LENGTH_SHORT).show();
+       } else {
+           Toast.makeText(Messages.this, "Failed to insert messages", Toast.LENGTH_SHORT).show();
+       }
 
 
 //return all messages from database
@@ -218,20 +228,45 @@ public class Messages extends AppCompatActivity {
         recyclerViewMsg.setHasFixedSize(true);
         recyclerViewMsg.setAdapter(mainAdapter);
 
-// method-- to remove item from recycler view
-        mainAdapter.setOnItemClickListener(new MessageAdapter.OnItemClickListener() {
+// method-- to remove item from recycler view from dialog box
+        mainAdapter.setDialogActionListener(new MessageAdapter.OnDialogActionListener() {
             @Override
-            public void onDeleteClick(int position) {
-
-//dialog
-                removeItem(position);
+            public void onMessageClose(int position) {
+                showCustomDialog(position);
             }
         });
+        recyclerViewMsg.setAdapter(mainAdapter);
     }
-    public void removeItem(int position) {
-        messageList.remove(position);
-        mainAdapter.notifyItemRemoved(position);
+
+    public void showCustomDialog(int position) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Messages.this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.delete_dialog_popup, null);
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.setCancelable(false);
+
+        Button yesBtn = dialogView.findViewById(R.id.yesBtn);
+        Button noBtn = dialogView.findViewById(R.id.noBtn);
+        AlertDialog alertDialog = dialogBuilder.create();
+
+        yesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainAdapter.deleteMessage(position);
+                alertDialog.dismiss();
+            }
+        });
+
+        noBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
 
 
+
+        alertDialog.show();
     }
-}
+
+    }

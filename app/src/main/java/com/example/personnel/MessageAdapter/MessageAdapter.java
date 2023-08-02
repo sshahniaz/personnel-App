@@ -1,7 +1,6 @@
 package com.example.personnel.MessageAdapter;
 
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
@@ -13,34 +12,41 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.personnel.DashboardAndMessagesModelClasses.MessageModel;
 import com.example.personnel.R;
 import java.util.List;
-
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageViewHolder> {
 
     Context context;
     List<MessageModel> messageList;
-    OnItemClickListener mainListener;
 
-    public interface OnItemClickListener {
-        void onDeleteClick (int position);
-    }
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        mainListener = listener;
-    }
+   OnDialogActionListener dialogActionListener;
+
     public MessageAdapter(List<MessageModel> messageList) {
         this.messageList = messageList;
-
     }
+    public interface OnDialogActionListener {
+        void onMessageClose(int position);
+    }
+
+    public void setDialogActionListener(OnDialogActionListener listener) {
+        dialogActionListener = listener;
+    }
+// method--- delete message
+    public void deleteMessage(int position) {
+        if (position>= 0 && position < messageList.size()) {
+            messageList.remove(position);
+            notifyItemRemoved(position);
+        }
+    }
+
     @NonNull
     @Override
     public MessageAdapter.messageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 //        Set view
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_layout, parent, false);
         TextView date = view.findViewById(R.id.messageDate);
-        return new messageViewHolder(view, mainListener);
+        return new messageViewHolder(view);
     }
 
 //    Pass values to message model
@@ -79,6 +85,31 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageV
         });
         // Set the visibility of the messageBody based on the model's expanded state
         holder.messageBody.setVisibility(model.isExpanded() ? View.VISIBLE : View.GONE);
+
+
+
+// Set the background color of the first item to blue
+        if (holder.getAdapterPosition() ==0) {
+            holder.messageLayout.setBackgroundResource(R.color.widgets);
+            holder.messageTitle.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.messageDate.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.messageSubject.setTextColor(Color.parseColor("#FFFFFF"));
+        } else {
+            boolean expanded = model.isExpanded();
+            holder.messageLayout.setBackgroundResource(expanded ? R.color.widgets : R.drawable.cards);
+            holder.messageTitle.setTextColor(Color.parseColor("#343A40"));
+            holder.messageDate.setTextColor(Color.parseColor("#707070"));
+            holder.messageSubject.setTextColor(Color.parseColor("#343A40"));
+        }
+        holder.messageClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                if (position != NO_POSITION && dialogActionListener != null) {
+                    dialogActionListener.onMessageClose(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -99,7 +130,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageV
         TextView messageBody;
         LinearLayout messageLayout;
         ImageView messageClose;
-        public messageViewHolder(@NonNull View itemView, OnItemClickListener listener) {
+        public messageViewHolder(@NonNull View itemView) {
             super(itemView);
             messageTitle = itemView.findViewById(R.id.messageTitle);
             messageDate = itemView.findViewById(R.id.messageDate);
@@ -108,19 +139,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageV
             messageLayout = itemView.findViewById(R.id.mLinearView);
             messageClose = itemView.findViewById(R.id.close);
 
-//          Event to delete item
-            messageClose.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != NO_POSITION){
-                            listener.onDeleteClick(position);
-                        }
-                    }
-
-                }
-            });
         }
     }
 }
