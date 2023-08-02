@@ -20,11 +20,12 @@ import android.widget.TextView;
 import com.google.android.material.navigation.NavigationView;
 
 public class Menu extends AppCompatActivity {
-    public final String currentPageKey = "currentPage";
+    public final String CURRENT_PAGE_KEY = "currentPage";
     private ImageButton holidayNav, homeNav, helpNav, rotaNav, messagesNav, payslipNav, logoutNav;
     private DBHelper dbHelper;
     private TextView headerText;
     private int employeeID;
+    private String prevPage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +48,21 @@ public class Menu extends AppCompatActivity {
 
         //Get Extras for style and employee id
 
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null) {
-//            employeeID = extras.getInt(dbHelper.employeeId);
-//        }
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            //Check DashBoard near end to check how the intents are set up and copy for all pages that require it.
+            employeeID = extras.getInt(dbHelper.employeeId);
+            prevPage = extras.getString(CURRENT_PAGE_KEY);
+        }
+
+        //Style buttons with if
+        if(prevPage.equals("dashBoard")){
+
+            //Button change stylle here
+            //Can be same for all buttons
+
+        }
+
 
         SQLiteDatabase db=dbHelper.getReadableDatabase();
         Cursor cursor=db.rawQuery("select * from "+dbHelper.employeeTable+" where "+dbHelper.employeeId+" = ?", new String[]{"1"});

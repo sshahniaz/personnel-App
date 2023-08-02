@@ -10,10 +10,28 @@
     android:weightSum="2"
     >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageButton
+            android:id="@+id/menu_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/menu"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_marginTop="22dp"
+
         app:cardBackgroundColor="@color/widgets"
         app:cardCornerRadius="30dp"
         app:cardElevation="15dp"
