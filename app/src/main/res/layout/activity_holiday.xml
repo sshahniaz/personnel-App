@@ -6,7 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".Holiday">
 
-    <include layout="@layout/activity_menu"/>
+    <!--Action bar layout-->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginRight="310dp"
+            android:backgroundTint="#00212529"
+            android:src="@drawable/outline_info_24" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="#00212529"
+            android:src="@drawable/menu" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

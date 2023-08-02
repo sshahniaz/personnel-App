@@ -11,10 +11,30 @@
 
     >
 
+    <!--Action bar layout-->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/outline_info_24"
+            android:backgroundTint="#00212529"
+            android:layout_gravity="left"
+            android:layout_marginRight="310dp"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu"
+            android:backgroundTint="#00212529"
+            android:layout_gravity="end"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_marginTop="22dp"
+
         app:cardBackgroundColor="@color/widgets"
         app:cardCornerRadius="30dp"
         app:cardElevation="15dp"
@@ -160,7 +180,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="667dp"
-        android:layout_marginTop="-80dp"
+        android:layout_marginTop="-90dp"
         android:backgroundTint="#F5FAFD"
         app:cardCornerRadius="40dp"
         app:cardElevation="20dp"
