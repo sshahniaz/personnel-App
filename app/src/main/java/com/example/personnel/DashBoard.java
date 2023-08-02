@@ -61,8 +61,10 @@ public class DashBoard extends AppCompatActivity {
 
 //        Get bundle from intent
          Bundle extras = getIntent().getExtras();
-         empID = extras.getInt("employee_id");
-         Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_SHORT).show();
+        if (extras != null) {
+            empID = extras.getInt("employee_id");
+        }
+        Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_SHORT).show();
 
         clockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
