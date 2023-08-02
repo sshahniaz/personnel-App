@@ -24,8 +24,10 @@
             android:src="@drawable/outline_info_24"
             android:backgroundTint="#00212529"
             android:layout_gravity="left"
-            android:layout_marginRight="310dp"/>
+            android:layout_marginRight="310dp"
+            android:id="@+id/infoBtn"/>
         <ImageButton
+            android:id="@+id/menu_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/menu"
@@ -33,7 +35,7 @@
             android:layout_gravity="end"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="350dp"

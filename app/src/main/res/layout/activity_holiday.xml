@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
+            android:id="@+id/infoBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -27,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:backgroundTint="#00212529"
-            android:src="@drawable/menu" />
+            android:src="@drawable/menu"
+            android:id="@+id/menu_btn"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <RelativeLayout

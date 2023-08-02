@@ -42,7 +42,7 @@ public class DashBoard extends AppCompatActivity {
     String dateString, timeString;
     private int empID;
 
-    private ImageButton holiday, rota, messages, payslip, menuBtn;
+    private ImageButton holiday, rota, messages, payslip, menuBtn,info;
     private DBHelper dbHelper;
 
     @Override
@@ -181,6 +181,16 @@ public class DashBoard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        info=findViewById(R.id.infoBtn);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(DashBoard.this, Help.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 

@@ -11,6 +11,7 @@
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/infoBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/outline_info_24"
@@ -18,6 +19,7 @@
             android:layout_gravity="left"
             android:layout_marginRight="310dp"/>
         <ImageButton
+            android:id="@+id/menu_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/menu"
