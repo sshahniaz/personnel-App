@@ -38,7 +38,7 @@ public class Menu extends AppCompatActivity {
 
         dbHelper=new DBHelper(this);
         SQLiteDatabase db=dbHelper.getReadableDatabase();
-        Cursor cursor=db.query(dbHelper.employeeTable, columns, null, null, null, null, null);
+//        Cursor cursor=db.query(dbHelper.employeeTable, columns, null, null, null, null, null);
 
 
         helpNav.setOnClickListener(new View.OnClickListener() {
