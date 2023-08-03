@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".DashBoard">
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="409dp"
         android:layout_height="350dp"
         android:layout_marginTop="22dp"
         android:layout_marginBottom="112dp"
-        app:cardBackgroundColor="@color/widgets"
         app:cardCornerRadius="30dp"
         app:cardElevation="25dp"
         >
@@ -20,7 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:weightSum="4">
+            android:weightSum="4"
+            android:background="@drawable/hero">
 
             <TextView
                 android:id="@+id/shiftDay"
