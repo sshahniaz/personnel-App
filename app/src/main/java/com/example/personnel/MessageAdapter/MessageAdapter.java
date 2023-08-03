@@ -17,6 +17,8 @@ import com.example.personnel.R;
 import java.util.List;
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageViewHolder> {
 
+
+
     Context context;
     List<MessageModel> messageList;
 
@@ -89,18 +91,21 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.messageV
 
 
 // Set the background color of the first item to blue
-        if (holder.getAdapterPosition() ==0) {
-            holder.messageLayout.setBackgroundResource(R.color.widgets);
-            holder.messageTitle.setTextColor(Color.parseColor("#FFFFFF"));
-            holder.messageDate.setTextColor(Color.parseColor("#FFFFFF"));
-            holder.messageSubject.setTextColor(Color.parseColor("#FFFFFF"));
-        } else {
-            boolean expanded = model.isExpanded();
-            holder.messageLayout.setBackgroundResource(expanded ? R.color.widgets : R.drawable.cards);
-            holder.messageTitle.setTextColor(Color.parseColor("#343A40"));
-            holder.messageDate.setTextColor(Color.parseColor("#707070"));
-            holder.messageSubject.setTextColor(Color.parseColor("#343A40"));
-        }
+//        if (holder.getAdapterPosition() == 0) {
+//            holder.messageLayout.setBackgroundResource(R.color.widgets);
+//            holder.messageTitle.setTextColor(Color.parseColor("#FFFFFF"));
+//            holder.messageDate.setTextColor(Color.parseColor("#FFFFFF"));
+//            holder.messageSubject.setTextColor(Color.parseColor("#FFFFFF"));
+//        } else {
+//            boolean expanded = model.isExpanded();
+////            holder.messageLayout.setBackgroundResource(expanded ? R.color.widgets : R.drawable.cards);
+////            holder.messageTitle.setTextColor(Color.parseColor("#343A40"));
+////            holder.messageDate.setTextColor(Color.parseColor("#707070"));
+////            holder.messageSubject.setTextColor(Color.parseColor("#343A40"));
+//        }
+
+
+
         holder.messageClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
