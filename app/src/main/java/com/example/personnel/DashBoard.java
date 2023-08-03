@@ -70,6 +70,12 @@ public class DashBoard extends AppCompatActivity {
         }else{
             SharedPreferences preferences = getSharedPreferences(LOGIN_PREF, Context.MODE_PRIVATE);
             empID = preferences.getInt(LOGIN_PREF_UID_KEY,0);
+            if(empID == 0){
+                Intent intent = new Intent(DashBoard.this, MainActivity.class);
+                startActivity(intent);
+            }
+            finish();
+
         }
         Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_SHORT).show();
 
@@ -204,9 +210,5 @@ public class DashBoard extends AppCompatActivity {
         db.close();
 
     }
-
-
-
-
 
 }

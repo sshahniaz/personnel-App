@@ -26,6 +26,6 @@
 
 <!--    Login Page-->
     <color name="loginInpBg">#e2e5e6</color>
-
+    <color name="inputShader">#CED4DA</color>
     #e2e5e6
 </resources>

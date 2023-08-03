@@ -98,9 +98,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        prefCheck = pref.getBoolean(LOGIN_PREF_CHECK_KEY, false);
-        uid = pref.getInt(LOGIN_PREF_UID_KEY,0);
-        if(prefCheck && (uid==0)){
+
+        if((prefCheck) && (uid!=0)){
             Intent intent = new Intent(MainActivity.this, DashBoard.class);
             intent.putExtra("employee_id",uid);
             startActivity(intent);

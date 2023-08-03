@@ -253,26 +253,31 @@ public class Holiday extends AppCompatActivity {
                 DBHelper leaveDB = new DBHelper(getApplicationContext());
                 SQLiteDatabase db = leaveDB.getWritableDatabase();
 
+                if(selLeaveType!=null && holidayReason!=null){
+                    //Leave status is int so 0 == Pending, 1 == Approved, -1 == Rejected;
+                    ContentValues values = new ContentValues();
+                    values.put(leaveDB.employeeId, empID);
+                    values.put(leaveDB.startDate,(dateStartDay.getText().toString()+"-"+dateStartMonth.getText().toString()+"-"+dateStartYear.getText().toString()));
+                    values.put(leaveDB.endDate,(dateEndDay.getText().toString()+"-"+dateEndMonth.getText().toString()+"-"+dateEndYear.getText().toString()));
+                    values.put(leaveDB.leaveType,selLeaveType);
+                    values.put(leaveDB.reason,holidayReason.getText().toString());
+                    values.put(leaveDB.status,0);
 
-                //Leave status is int so 0 == Pending, 1 == Approved, -1 == Rejected;
-                ContentValues values = new ContentValues();
-                values.put(leaveDB.employeeId, empID);
-                values.put(leaveDB.startDate,(dateStartDay.getText().toString()+"-"+dateStartMonth.getText().toString()+"-"+dateStartYear.getText().toString()));
-                values.put(leaveDB.endDate,(dateEndDay.getText().toString()+"-"+dateEndMonth.getText().toString()+"-"+dateEndYear.getText().toString()));
-                values.put(leaveDB.leaveType,selLeaveType);
-                values.put(leaveDB.reason,holidayReason.getText().toString());
-                values.put(leaveDB.status,0);
+                    //Test
+                    long result = db.insert(leaveDB.leaveTable,null,values);
+                    if (result == -1){
+                        Toast.makeText(getApplicationContext(),"Failed", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_SHORT).show();
 
-                //Test
-              long result = db.insert(leaveDB.leaveTable,null,values);
-              if (result == -1){
-                  Toast.makeText(getApplicationContext(),"Failed", Toast.LENGTH_SHORT).show();
-              }else {
-                  Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_SHORT).show();
+                    }
 
-              }
+                    db.close();
 
-                db.close();
+                }else{
+                    bookBtn.setError("Please Select Holiday Type and Reason");
+                }
+
 
             }
         });

@@ -26,6 +26,8 @@ public class Menu extends AppCompatActivity {
     //For SharedPreferances
     private static final String LOGIN_PREF = "login_prefs";
     private static final String LOGIN_PREF_UID_KEY= "uid_key";
+    private static final String LOGIN_PREF_CHECK_KEY= "check_key";
+
     public final String CURRENT_PAGE_KEY = "currentPage";
     private ImageButton holidayNav, homeNav, info, rotaNav, messagesNav, payslipNav, logoutNav, backArrow;
     private DBHelper dbHelper;
@@ -166,7 +168,8 @@ public class Menu extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences preferences = getSharedPreferences(LOGIN_PREF, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.clear();
+                editor.putBoolean(LOGIN_PREF_CHECK_KEY, false);
+                editor.putInt(LOGIN_PREF_UID_KEY,0);
                 editor.apply();
 
                 Intent intent=new Intent(Menu.this, MainActivity.class);

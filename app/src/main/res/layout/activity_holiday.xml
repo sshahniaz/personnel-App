@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".Holiday">
 
     <!--Action bar layout-->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -45,20 +45,22 @@
         <RelativeLayout
             android:id="@+id/holidayTopCard"
             android:layout_width="match_parent"
-            android:layout_height="270dp"
+            android:layout_height="360dp"
             android:elevation="10dp"
             android:background="@drawable/hero"
             >
             <!--  Scroll View   -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="240dp"
                 android:layout_centerInParent="true"
-                >
+                android:scrollbarAlwaysDrawHorizontalTrack="false">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/holiday_cards_list"
                         android:layout_width="match_parent"
@@ -73,9 +75,9 @@
         <RelativeLayout
             android:id="@+id/holidayBottomCard"
             android:layout_width="match_parent"
-            android:layout_height="700dp"
+            android:layout_height="800dp"
             android:layout_below="@+id/holidayTopCard"
-            android:layout_marginTop="-50dp"
+            android:layout_marginTop="-90dp"
             android:elevation="11dp"
             android:background="@drawable/cards"
 
@@ -146,13 +148,13 @@
             <!--   Date Holder         -->
             <LinearLayout
                 android:layout_width="300dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:id="@+id/dateContainer"
                 android:layout_below="@+id/holiday_btnGrp_container"
                 android:orientation="horizontal"
                 android:weightSum="3"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="80dp"
+                android:layout_margin="40dp"
                 >
                 <!-- Date Holder Start Date  -->
                 <androidx.cardview.widget.CardView
@@ -161,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:cardCornerRadius="5dp"
-                    app:cardElevation="12dp">
+                    app:cardElevation="5dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -172,17 +174,18 @@
                         <TextView
                             android:id="@+id/date_start_day"
                             android:layout_width="wrap_content"
-                            android:layout_height="80dp"
+                            android:layout_height="60dp"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:padding="2dp"
+                            android:background="@color/inputShader"
+                            android:padding="5dp"
                             android:text="22"
                             android:textSize="30dp"
                             android:fontFamily="@font/hanken_grotesk"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="80dp"
+                            android:layout_height="60dp"
                             android:layout_weight="1"
                             android:background="@color/accent"
 
@@ -216,7 +219,7 @@
             <!--  Text holder "To"              -->
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
                     android:text="To"
                     android:textSize="30dp"
@@ -232,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:cardCornerRadius="5dp"
-                    app:cardElevation="20dp"
+                    app:cardElevation="5dp"
                    >
 
                     <LinearLayout
@@ -243,20 +246,21 @@
                     <TextView
                         android:id="@+id/date_end_day"
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="60dp"
                         android:text="22"
                         android:textSize="30dp"
+                        android:background="@color/inputShader"
                         android:layout_weight="1"
-                        android:padding="2dp"
+                        android:padding="5dp"
                         android:gravity="center"
                         android:fontFamily="@font/hanken_grotesk"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="60dp"
                         android:orientation="vertical"
                         android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
+
                         android:background="@color/accent"
                         android:padding="2dp"
                         android:gravity="center">
@@ -298,19 +302,20 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="300dp"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     app:cardCornerRadius="10sp"
-                    app:cardElevation="20dp"
+                    app:cardElevation="10dp"
+                    android:backgroundTint="@color/inputShader"
                     >
                     <EditText
                         android:id="@+id/holiday_reason"
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        android:layout_height="60dp"
                         android:hint="Reason for leave"
                         android:textSize="20sp"
-                        android:backgroundTint="@color/accent"
+                        android:backgroundTint="@color/inputShader"
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/hanken_grotesk"
                         android:paddingLeft="20dp"/>

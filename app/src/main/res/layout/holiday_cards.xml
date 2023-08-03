@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="85dp"
-    android:layout_height="wrap_content"
+    android:layout_width="120dp"
+    android:layout_height="150dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:backgroundTint="@color/background"
@@ -13,9 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:layout_marginTop="8dp"
 
+        android:gravity="center"
         >
 
         <TextView
@@ -23,10 +23,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="8"
-            android:textSize="17sp"
+            android:text="39-39"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:layout_marginTop="5dp"
+
             android:fontFamily="@font/hanken_grotesk"/>
         <TextView
             android:id="@+id/holiday_cards_month"
@@ -35,7 +35,7 @@
             android:layout_gravity="center_horizontal"
             android:text="Oct"
             android:layout_marginTop="6dp"
-            android:textSize="12sp"
+            android:textSize="17sp"
             android:fontFamily="@font/hanken_grotesk"/>
         <TextView
             android:id="@+id/holiday_cards_holiday_type"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Holiday"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:fontFamily="@font/hanken_grotesk"/>
         <TextView
             android:id="@+id/holiday_cards_status"
@@ -51,9 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Approved"
-            android:textSize="13sp"
+            android:textSize="16sp"
             android:layout_marginTop="6dp"
-            android:layout_marginBottom="10dp"
             android:fontFamily="@font/hanken_grotesk"
             />
     </LinearLayout>
