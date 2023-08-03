@@ -347,7 +347,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
         int count=0;
-        if (c != null) {
+        if (c != null  && c.moveToFirst()) {
 
             c.moveToPosition(7);
             do{
@@ -375,7 +375,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor c = db.rawQuery(select, new String[]{String.valueOf(empID)});
 
         int count=0;
-        if (c != null) {
+        if (c != null  && c.moveToFirst()) {
             c.moveToPosition(14);
             do{
                 int  rotaIdValue = c.getInt(0);
@@ -402,7 +402,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor c = db.rawQuery(select, new String[]{String.valueOf(empID)});
 
         int count=0;
-        if (c != null) {
+        if (c != null && c.moveToFirst()) {
             c.moveToPosition(21);
             do{
                 int  rotaIdValue = c.getInt(0);
