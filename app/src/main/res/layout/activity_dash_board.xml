@@ -186,9 +186,8 @@
         android:layout_width="match_parent"
         android:layout_height="667dp"
         android:layout_marginTop="-90dp"
-        android:backgroundTint="#F5FAFD"
-       android:background="@drawable/cards"
-        android:elevation="30dp"
+        android:backgroundTint="@drawable/cards"
+        android:elevation="100dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
