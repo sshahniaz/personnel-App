@@ -7,8 +7,6 @@
     tools:context=".DashBoard"
     android:orientation="vertical"
     android:id="@+id/mainLayout"
-    android:weightSum="2"
-
     >
 
 
@@ -16,7 +14,8 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -36,13 +35,11 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-    <androidx.cardview.widget.CardView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="350dp"
-
-        app:cardBackgroundColor="@color/widgets"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="15dp"
+        android:background="@drawable/hero"
+        android:elevation="-10dp"
         >
 
         <LinearLayout
@@ -179,14 +176,14 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 <!--    Bottom card layout-->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="667dp"
-        android:layout_marginTop="-90dp"
-        android:backgroundTint="@drawable/cards"
+        android:layout_marginTop="-80dp"
+        android:background="@drawable/cards"
         android:elevation="100dp"
         >
 
