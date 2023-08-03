@@ -187,7 +187,7 @@
         android:layout_height="667dp"
         android:layout_marginTop="-90dp"
         android:backgroundTint="#F5FAFD"
-       android:background="@drawable/shadow"
+       android:background="@drawable/cards"
         android:elevation="30dp"
         >
 

@@ -18,16 +18,26 @@
 
             <include layout="@layout/nav_header" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginTop="25dp"
-                android:backgroundTint="#00212529"
-                android:layout_marginLeft="40dp"
-                android:src="@drawable/homenav"
-                android:id="@+id/homeNav"
+            <androidx.cardview.widget.CardView
+                android:layout_width="310dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="25dp"
+                android:layout_marginTop="10dp"
+                app:cardElevation="3in"
+                android:backgroundTint="#4D82AAE3">
 
-                />
+                <ImageButton
+                    android:id="@+id/homeNav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="5dp"
+
+                    android:backgroundTint="#00212529"
+                    android:src="@drawable/homenav"
+
+                    />
+            </androidx.cardview.widget.CardView>
 
             <ImageButton
                 android:layout_width="wrap_content"
