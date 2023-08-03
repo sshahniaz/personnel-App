@@ -26,13 +26,21 @@ public class Rota extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rota);
 
+
         //return data from the db
 
         DBHelper dbHelper2=new DBHelper(Rota.this);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            //Check DashBoard near end to check how the intents are set up and copy for all pages that require it.
+            empID = extras.getInt(dbHelper2.employeeId);
+
+        }
         rotaList=dbHelper2.getWeek1(empID);
         rotaList2=dbHelper2.getWeek2(empID);
         rotaList3=dbHelper2.getWeek3(empID);
         rotaList4=dbHelper2.getWeek4(empID);
+
 
         menuBtn = findViewById(R.id.menu_btn);
         menuBtn.setOnClickListener(new View.OnClickListener() {

@@ -307,28 +307,28 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] columns = {rotaId,rotaDate, startTime, endTime};
-        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_Id= ?";
-        Cursor cr = db.rawQuery(select,new String[]{String.valueOf(empID)});
+        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_id= ?";
+        Cursor c = db.rawQuery(select,new String[]{String.valueOf(empID)});
 
 
 //                for(int i=0;i<4;i++)
 //                {
 
         int count=0;
-        if (cr != null && cr.moveToFirst()) {
+        if (c != null && c.moveToFirst()) {
 
             do{
-                int  rotaIdValue = cr.getInt(0);
+                int  rotaIdValue = c.getInt(0);
 
-                String rotaDayValue = cr.getString(1);
-                String rotaStartValue = cr.getString(2);
-                String rotaEndValue = cr.getString(3);
+                String rotaDayValue = c.getString(1);
+                String rotaStartValue = c.getString(2);
+                String rotaEndValue = c.getString(3);
 
                 Rota_Model msg = new Rota_Model(rotaIdValue, rotaDayValue, rotaStartValue, rotaEndValue );
                 rotaList.add(msg);
 
                 count++;
-            }while(cr.moveToNext() && count<7);
+            }while(c.moveToNext() && count<7);
         }
 
         //}
@@ -342,25 +342,26 @@ public class DBHelper extends SQLiteOpenHelper {
         List<Rota_Model> rotaList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_Id = ?";
-        Cursor cr = db.rawQuery(select,new String[]{String.valueOf(empID)});
+        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_id=?";
+        Cursor c = db.rawQuery(select,new String[]{String.valueOf(empID)});
 
 
         int count=0;
-        if (cr != null) {
-            cr.moveToPosition(7);
-            do{
-                int  rotaIdValue = cr.getInt(0);
+        if (c != null) {
 
-                String rotaDayValue = cr.getString(1);
-                String rotaStartValue = cr.getString(2);
-                String rotaEndValue = cr.getString(3);
+            c.moveToPosition(7);
+            do{
+                int  rotaIdValue = c.getInt(0);
+
+                String rotaDayValue = c.getString(1);
+                String rotaStartValue = c.getString(2);
+                String rotaEndValue = c.getString(3);
 
                 Rota_Model msg = new Rota_Model(rotaIdValue, rotaDayValue, rotaStartValue, rotaEndValue );
                 rotaList.add(msg);
 
                 count++;
-            }while(cr.moveToNext() && count<7);
+            }while(c.moveToNext() && count<7);
         }
         return rotaList;
 
@@ -370,7 +371,7 @@ public class DBHelper extends SQLiteOpenHelper {
         List<Rota_Model> rotaList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_Id = ? ";
+        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_id = ? ";
         Cursor c = db.rawQuery(select, new String[]{String.valueOf(empID)});
 
         int count=0;
@@ -397,7 +398,7 @@ public class DBHelper extends SQLiteOpenHelper {
         List<Rota_Model> rotaList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_Id = ? ";
+        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_id = ? ";
         Cursor c = db.rawQuery(select, new String[]{String.valueOf(empID)});
 
         int count=0;
