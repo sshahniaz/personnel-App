@@ -13,6 +13,8 @@ import com.example.personnel.DashboardAndMessagesModelClasses.ClockInModel;
 import com.example.personnel.DashboardAndMessagesModelClasses.ClockOutModel;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -44,7 +46,9 @@ public class DashBoard extends AppCompatActivity {
 
     private ImageButton holiday, rota, messages, payslip, menuBtn,info;
     private DBHelper dbHelper;
-
+    private static final String LOGIN_PREF = "login_prefs";
+    private static final String LOGIN_PREF_UID_KEY= "uid_key";
+    private Cursor cursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +65,19 @@ public class DashBoard extends AppCompatActivity {
 
 //        Get bundle from intent
          Bundle extras = getIntent().getExtras();
-         empID = extras.getInt("employee_id");
-         Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_SHORT).show();
+        if (extras != null) {
+            empID = extras.getInt("employee_id");
+        }else{
+            SharedPreferences preferences = getSharedPreferences(LOGIN_PREF, Context.MODE_PRIVATE);
+            empID = preferences.getInt(LOGIN_PREF_UID_KEY,0);
+            if(empID == 0){
+                Intent intent = new Intent(DashBoard.this, MainActivity.class);
+                startActivity(intent);
+            }
+            finish();
+
+        }
+        Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_SHORT).show();
 
         clockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +92,7 @@ public class DashBoard extends AppCompatActivity {
                 timeString = time.format(calendar.getTime());
 
 //                 Create object of DB helper class
-                DBHelper dbHelper = new DBHelper(DashBoard.this);
+               dbHelper = new DBHelper(DashBoard.this);
 
                 if (!isClockedIn) {
                     // Clock In logic
@@ -113,7 +128,7 @@ public class DashBoard extends AppCompatActivity {
 //        Instantiate Db Helper, access db and retrieve values
       DBHelper dbHelper = new DBHelper(DashBoard.this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + dbHelper.rotaTable + " WHERE " + dbHelper.employeeId + " = ?", new String[]{String.valueOf(empID)});
+        cursor = db.rawQuery("SELECT * FROM " + dbHelper.rotaTable + " WHERE " + dbHelper.employeeId + " = ?", new String[]{String.valueOf(empID)});
 
         if (cursor.moveToFirst()) {
             String dayValue = cursor.getString(2);
@@ -126,8 +141,7 @@ public class DashBoard extends AppCompatActivity {
             shiftEnd.setText(endTimeValue);
         }
 
-        cursor.close();
-        db.close();
+
 
         holiday=(ImageButton) findViewById(R.id.holidayButton);
         rota=(ImageButton) findViewById(R.id.rotaButton);
@@ -140,7 +154,8 @@ public class DashBoard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(DashBoard.this, Holiday.class);
-                intent.putExtra(dbHelper.employeeId,cursor.getInt(3));
+
+                intent.putExtra(dbHelper.employeeId,empID);
                 startActivity(intent);
             }
         });
@@ -191,10 +206,9 @@ public class DashBoard extends AppCompatActivity {
             }
         });
 
+        cursor.close();
+        db.close();
+
     }
-
-
-
-
 
 }
