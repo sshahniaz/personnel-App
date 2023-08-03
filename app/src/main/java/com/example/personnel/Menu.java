@@ -100,6 +100,11 @@ public class Menu extends AppCompatActivity {
                     startActivity(intent);
 
                 }
+                if(prevPage.equals("help")){
+                    Intent intent=new Intent(Menu.this, Help.class);
+                    startActivity(intent);
+
+                }
 
             }
         });

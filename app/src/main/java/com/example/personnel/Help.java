@@ -32,7 +32,7 @@ public class Help extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Help.this, Menu.class);
-                intent.putExtra(CURRENT_PAGE_KEY, "rota");
+                intent.putExtra(CURRENT_PAGE_KEY, "help");
                 intent.putExtra(dbHelper.employeeId, empID);
                 startActivity(intent);
             }
