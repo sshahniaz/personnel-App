@@ -276,6 +276,7 @@ public class Holiday extends AppCompatActivity {
 
                 }else{
                     bookBtn.setError("Please Select Holiday Type and Reason");
+                    holidayReason.setError("Reason cannot be empty");
                 }
 
 
