@@ -301,12 +301,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
 
-    public List<Rota_Model> getWeek1() {
+
+    public List<Rota_Model> getWeek1(int empID) {
         List<Rota_Model> rotaList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] columns = {rotaId,rotaDate, startTime, endTime};
-        Cursor cr = db.query(rotaTable, columns, null, null, null, null, null);
+        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_Id= ?";
+        Cursor cr = db.rawQuery(select,new String[]{String.valueOf(empID)});
 
 
 //                for(int i=0;i<4;i++)
@@ -336,12 +338,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<Rota_Model> getWeek2() {
+    public List<Rota_Model> getWeek2(int empID) {
         List<Rota_Model> rotaList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String[] columns = {rotaId,rotaDate, startTime, endTime};
-        Cursor cr = db.query(rotaTable, columns, null, null, null, null, null);
+        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_Id = ?";
+        Cursor cr = db.rawQuery(select,new String[]{String.valueOf(empID)});
 
 
         int count=0;
@@ -364,13 +366,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<Rota_Model> getWeek3() {
+    public List<Rota_Model> getWeek3(int empID) {
         List<Rota_Model> rotaList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String[] columns = {rotaId,rotaDate, startTime, endTime};
-        Cursor c = db.query(rotaTable, columns, null, null, null, null, null);
-
+        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_Id = ? ";
+        Cursor c = db.rawQuery(select, new String[]{String.valueOf(empID)});
 
         int count=0;
         if (c != null) {
@@ -392,13 +393,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<Rota_Model> getWeek4() {
+    public List<Rota_Model> getWeek4(int empID) {
         List<Rota_Model> rotaList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String[] columns = {rotaId,rotaDate, startTime, endTime};
-        Cursor c = db.query(rotaTable, columns, null, null, null, null, null);
-
+        String select= " SELECT rota_id, date, start_time, end_time FROM " + rotaTable + " WHERE employee_Id = ? ";
+        Cursor c = db.rawQuery(select, new String[]{String.valueOf(empID)});
 
         int count=0;
         if (c != null) {

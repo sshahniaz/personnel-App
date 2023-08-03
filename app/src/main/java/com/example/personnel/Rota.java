@@ -29,10 +29,10 @@ public class Rota extends AppCompatActivity {
         //return data from the db
 
         DBHelper dbHelper2=new DBHelper(Rota.this);
-        rotaList=dbHelper2.getWeek1();
-        rotaList2=dbHelper2.getWeek2();
-        rotaList3=dbHelper2.getWeek3();
-        rotaList4=dbHelper2.getWeek4();
+        rotaList=dbHelper2.getWeek1(empID);
+        rotaList2=dbHelper2.getWeek2(empID);
+        rotaList3=dbHelper2.getWeek3(empID);
+        rotaList4=dbHelper2.getWeek4(empID);
 
         menuBtn = findViewById(R.id.menu_btn);
         menuBtn.setOnClickListener(new View.OnClickListener() {
