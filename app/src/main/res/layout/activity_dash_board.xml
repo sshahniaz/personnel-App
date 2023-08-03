@@ -4,52 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DashBoard"
-    android:orientation="vertical"
-    android:id="@+id/mainLayout"
-    android:weightSum="2"
 
-    >
-
-
-    <!--Action bar layout-->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/outline_info_24"
-            android:backgroundTint="#00212529"
-            android:layout_gravity="left"
-            android:layout_marginRight="310dp"
-            android:id="@+id/infoBtn"/>
-        <ImageButton
-            android:id="@+id/menu_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/menu"
-            android:backgroundTint="#00212529"
-            android:layout_gravity="end"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    tools:context=".DashBoard">
 
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="409dp"
         android:layout_height="350dp"
-
-        app:cardBackgroundColor="@color/widgets"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="112dp"
         app:cardCornerRadius="30dp"
-        app:cardElevation="15dp"
+        app:cardElevation="25dp"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:weightSum="4">
+            android:weightSum="4"
+            android:background="@drawable/hero">
 
             <TextView
                 android:id="@+id/shiftDay"
@@ -68,14 +41,13 @@
                 android:textColor="#EFEFEF"
                 android:textFontWeight="600"
                 android:textSize="38sp" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="-20dp"
                 android:layout_marginEnd="15dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="-20dp">
 
                 <TextView
                     android:id="@+id/shiftStart"
@@ -84,8 +56,8 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="-23dp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/hanken_grotesk"
                     android:padding="10dp"
+                    android:fontFamily="@font/hanken_grotesk"
                     android:shadowColor="#333333"
                     android:shadowDx="-0.05"
                     android:shadowDy="-0.05"
@@ -101,10 +73,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:paddingTop="10dp"
                     android:layout_marginTop="-23dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/hanken_grotesk"
-                    android:paddingTop="10dp"
                     android:shadowColor="#333333"
                     android:shadowDx="-0.05"
                     android:shadowDy="-0.05"
@@ -121,9 +93,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="-23dp"
+                    android:padding="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/hanken_grotesk"
-                    android:padding="10dp"
                     android:shadowColor="#333333"
                     android:shadowDx="-0.05"
                     android:shadowDy="-0.05"
@@ -137,15 +109,15 @@
 
             </LinearLayout>
 
-            <!--<FrameLayout-->
-            <!--    android:layout_width="match_parent"-->
-            <!--    android:layout_height="wrap_content"-->
-            <!--    android:id="@+id/buttonFragment"-->
-            <!--    android:orientation="vertical"-->
-            <!--    >-->
+<!--<FrameLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:id="@+id/buttonFragment"-->
+<!--    android:orientation="vertical"-->
+<!--    >-->
 
 
-            <!--</FrameLayout>-->
+<!--</FrameLayout>-->
             <Button
                 android:id="@+id/clockInBtn"
                 android:layout_width="wrap_content"
@@ -160,92 +132,25 @@
                 android:text="Clock in"
                 android:textSize="25sp"
                 app:cornerRadius="8sp" />
-
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/dateTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:textSize="30sp" />
-
+                android:textSize="30sp"/>
             <TextView
-                android:id="@+id/dateTime2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/dateTime2"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:textSize="30sp" />
+                android:textSize="30sp"/>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-<!--    Bottom card layout-->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="667dp"
-        android:layout_marginTop="-90dp"
-        android:backgroundTint="#F5FAFD"
-       android:background="@drawable/cards"
-        android:elevation="30dp"
-        >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="ContentDescription">
-
-            <ImageButton
-                android:id="@+id/holidayButton"
-                android:layout_width="152dp"
-                android:layout_height="115dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="80dp"
-                android:backgroundTint="#00000000"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/holidaybutton"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
-
-            <ImageButton
-                android:id="@+id/messageButton"
-                android:layout_width="152dp"
-                android:layout_height="115dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="48dp"
-                android:backgroundTint="#00000000"
-                app:layout_constraintStart_toEndOf="@+id/payslipButton"
-                app:layout_constraintTop_toBottomOf="@+id/rotaButton"
-                app:srcCompat="@drawable/messagesbutton"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
-
-            <ImageButton
-                android:id="@+id/rotaButton"
-                android:layout_width="152dp"
-                android:layout_height="115dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="80dp"
-                android:backgroundTint="#00000000"
-                app:layout_constraintStart_toEndOf="@+id/holidayButton"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/rotabutton"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
-
-            <ImageButton
-                android:id="@+id/payslipButton"
-                android:layout_width="152dp"
-                android:layout_height="115dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="48dp"
-                android:backgroundTint="#00000000"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/holidayButton"
-                app:srcCompat="@drawable/payslipbutton"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </LinearLayout>
