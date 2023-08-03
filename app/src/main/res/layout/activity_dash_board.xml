@@ -182,16 +182,14 @@
     </androidx.cardview.widget.CardView>
 
 <!--    Bottom card layout-->
-    <androidx.cardview.widget.CardView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="667dp"
         android:layout_marginTop="-90dp"
         android:backgroundTint="#F5FAFD"
-        app:cardCornerRadius="40dp"
-        app:cardElevation="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+       android:background="@drawable/shadow"
+        android:elevation="30dp"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -247,7 +245,7 @@
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </LinearLayout>
