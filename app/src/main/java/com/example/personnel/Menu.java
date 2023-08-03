@@ -77,6 +77,8 @@ public class Menu extends AppCompatActivity {
 
                 if(prevPage.equals("dashBoard")){
                     Intent intent=new Intent(Menu.this, DashBoard.class);
+                    //for the Dashboard
+                    intent.putExtra(dbHelper.employeeId,empID);
                     startActivity(intent);
 
                 }
