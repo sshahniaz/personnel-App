@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,7 +19,8 @@ public class Rota extends AppCompatActivity {
     Rota_adapter week1Adapter, week2Adapter, week3Adapter, week4Adapter;
     List<Rota_Model> rotaList, rotaList2, rotaList3, rotaList4;
     ImageButton menuBtn;
-
+    private static final String LOGIN_PREF = "login_prefs";
+    private static final String LOGIN_PREF_UID_KEY= "uid_key";
     public final String CURRENT_PAGE_KEY = "currentPage";
     private int empID;
 
@@ -35,6 +38,9 @@ public class Rota extends AppCompatActivity {
             //Check DashBoard near end to check how the intents are set up and copy for all pages that require it.
             empID = extras.getInt(dbHelper2.employeeId);
 
+        }else{
+            SharedPreferences preferences = getSharedPreferences(LOGIN_PREF, Context.MODE_PRIVATE);
+            empID = preferences.getInt(LOGIN_PREF_UID_KEY,0);
         }
         rotaList=dbHelper2.getWeek1(empID);
         rotaList2=dbHelper2.getWeek2(empID);
