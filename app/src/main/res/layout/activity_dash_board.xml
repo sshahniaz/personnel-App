@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".DashBoard"
     android:orientation="vertical"
     android:id="@+id/mainLayout"
@@ -39,14 +40,25 @@
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:background="@drawable/hero"
-        android:elevation="-10dp"
-        >
+        android:elevation="-10dp">
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="409dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="112dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="25dp"
+>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:weightSum="4">
+            android:weightSum="4"
+            android:background="@drawable/hero">
 
             <TextView
                 android:id="@+id/shiftDay"
@@ -69,10 +81,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="-20dp"
                 android:layout_marginEnd="15dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="-20dp">
 
                 <TextView
                     android:id="@+id/shiftStart"
