@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@+id/hero"
     android:layout_width="match_parent"
-    android:layout_height="270dp"
+    android:layout_height="320dp"
     android:layout_marginTop="50dp"
     android:background="@drawable/hero"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,7 +15,7 @@
         android:layout_marginTop="50dp"
         android:fontFamily="@font/hanken_grotesk"
         android:textColor="#F5FAFD"
-        android:textSize="50dp"
+        android:textSize="70dp"
         android:textStyle="bold" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/hanken_grotesk"
         android:textColor="#F5FAFD"
-        android:textSize="30dp"
+        android:textSize="35dp"
         android:textStyle="bold" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/hanken_grotesk"
         android:textColor="#F5FAFD"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
     <ImageView

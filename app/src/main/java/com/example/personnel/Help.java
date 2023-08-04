@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +22,10 @@ public class Help extends AppCompatActivity {
 
     DBHelper dbHelper;
     public final String CURRENT_PAGE_KEY = "currentPage";
+
+    //Adding the SharedPreferances Keysso that the ID is passed around
+    private static final String LOGIN_PREF = "login_prefs";
+    private static final String LOGIN_PREF_UID_KEY= "uid_key";
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,8 @@ public class Help extends AppCompatActivity {
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences(LOGIN_PREF, Context.MODE_PRIVATE);
+                empID = preferences.getInt(LOGIN_PREF_UID_KEY,0);
                 Intent intent = new Intent(Help.this, Menu.class);
                 intent.putExtra(CURRENT_PAGE_KEY, "help");
                 intent.putExtra(dbHelper.employeeId, empID);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/pop_up_guide_layout">
 
     <TextView
@@ -16,15 +16,66 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:text="Check and download payslip
+        android:text="Check and download monthly payslip
 "/>
 
     <ImageView
         android:id="@+id/video"
         android:layout_below="@+id/title"
         android:layout_width="wrap_content"
-        android:layout_height="600dp"
+        android:layout_height="400dp"
         android:src="@drawable/payslip"/>
+
+    <LinearLayout
+        android:id="@+id/information"
+        android:layout_below="@+id/video"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="To review and download your payslip:"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="   - Go to the payslip page." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="   - Scroll to the month you want to"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="     download."/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="   - Click on the download icon on the right."/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="   - Go to your download folder."/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/backGuide2"
@@ -33,8 +84,7 @@
         android:text="Back"
         android:backgroundTint="@color/black"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/video"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/information"
         android:layout_marginBottom="10dp"/>
 
 </RelativeLayout>
