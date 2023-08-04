@@ -50,7 +50,7 @@ public class Holiday extends AppCompatActivity {
     EditText holidayReason;
     Button bookBtn;
     private int empID;
-    ImageButton menuBtn;
+    ImageButton menuBtn,info;
     public final String CURRENT_PAGE_KEY = "currentPage";
 
 
@@ -294,6 +294,14 @@ public class Holiday extends AppCompatActivity {
             }
         });
 
+        info=findViewById(R.id.infoBtn);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Holiday.this, Help.class);
+                startActivity(intent);
+            }
+        });
 
 
 

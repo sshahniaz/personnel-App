@@ -24,7 +24,7 @@ public class Payslip extends AppCompatActivity {
     private ListView listView;
     private ArrayList<String> dataList;
     private static final int REQUEST_WRITE_EXTERNAL_STORAGE = 1;
-    private ImageButton menuBtn;
+    private ImageButton menuBtn,info;
     public final String CURRENT_PAGE_KEY = "currentPage";
     private int empID;
 
@@ -57,6 +57,14 @@ public class Payslip extends AppCompatActivity {
                 Intent intent = new Intent(Payslip.this, Menu.class);
                 intent.putExtra(CURRENT_PAGE_KEY, "payslip");
                 intent.putExtra(db.employeeId, empID);
+                startActivity(intent);
+            }
+        });
+        info=findViewById(R.id.infoBtn);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Payslip.this, Help.class);
                 startActivity(intent);
             }
         });

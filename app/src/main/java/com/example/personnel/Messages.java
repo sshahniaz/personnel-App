@@ -30,7 +30,7 @@ public class Messages extends AppCompatActivity {
 
     public final String CURRENT_PAGE_KEY = "currentPage";
     private int empID;
-    private ImageButton menuBtn;
+    private ImageButton menuBtn,info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -250,6 +250,14 @@ public class Messages extends AppCompatActivity {
                 Intent intent = new Intent(Messages.this, Menu.class);
                 intent.putExtra(CURRENT_PAGE_KEY, "messages");
                 intent.putExtra(dbHelper.employeeId, empID);
+                startActivity(intent);
+            }
+        });
+        info=findViewById(R.id.infoBtn);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Messages.this, Help.class);
                 startActivity(intent);
             }
         });

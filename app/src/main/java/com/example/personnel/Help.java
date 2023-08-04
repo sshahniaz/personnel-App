@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class Help extends AppCompatActivity {
     Button guide1btn, guide2btn, guide3btn, guide4btn, guide5btn, backGuide1, backGuide2, backGuide3, backGuide4, backGuide5, contact;
     private int empID;
-    ImageButton menuBtn;
+    ImageButton menuBtn,info;
 
     DBHelper dbHelper;
     public final String CURRENT_PAGE_KEY = "currentPage";
@@ -34,6 +34,14 @@ public class Help extends AppCompatActivity {
                 Intent intent = new Intent(Help.this, Menu.class);
                 intent.putExtra(CURRENT_PAGE_KEY, "help");
                 intent.putExtra(dbHelper.employeeId, empID);
+                startActivity(intent);
+            }
+        });
+        info=findViewById(R.id.infoBtn);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Help.this, Help.class);
                 startActivity(intent);
             }
         });
