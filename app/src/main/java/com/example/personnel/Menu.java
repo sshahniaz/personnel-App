@@ -10,6 +10,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -39,6 +40,8 @@ public class Menu extends AppCompatActivity {
     private String prevPage;
     private CardView home, holiday, payslip, messages, rota;
 
+    private Activity holder;
+
 
 
     @Override
@@ -56,6 +59,10 @@ public class Menu extends AppCompatActivity {
         backArrow=(ImageButton) findViewById(R.id.backArrow);
 
         home=(CardView) findViewById(R.id.homeCard);
+        holiday=(CardView) findViewById(R.id.holidayCard);
+        rota=(CardView) findViewById(R.id.rotaCard);
+        payslip=(CardView) findViewById(R.id.payslipCard);
+        messages=(CardView) findViewById(R.id.messagesCard);
 
         //Get header
         headerText = findViewById(R.id.header_text);
@@ -76,6 +83,28 @@ public class Menu extends AppCompatActivity {
             empID = preferences.getInt(LOGIN_PREF_UID_KEY,0);
         }
 
+//        Active item
+        if(prevPage.equals("dashBoard"))
+        {
+            home.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
+        }
+        if(prevPage.equals("rota")){
+            rota.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
+
+        }
+        if(prevPage.equals("payslip")){
+            payslip.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
+
+        }
+        if(prevPage.equals("holiday")){
+            holiday.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
+
+        }
+        if(prevPage.equals("messages")){
+            messages.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
+
+        }
+
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,6 +114,7 @@ public class Menu extends AppCompatActivity {
                     //for the Dashboard
                     intent.putExtra(dbHelper.employeeId,empID);
                     startActivity(intent);
+//                    home.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
 
 
                 }
@@ -117,10 +147,7 @@ public class Menu extends AppCompatActivity {
             }
         });
         //Style buttons with if
-        if(this.equals("dashboard"))
-        {
-            home.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
-        }
+
 
 
 
@@ -140,14 +167,16 @@ public class Menu extends AppCompatActivity {
             }
         });
 
+
         homeNav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Menu.this, DashBoard.class);
                 intent.putExtra(dbHelper.employeeId,empID);
                 startActivity(intent);
+//                home.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
 
-                home.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
+
             }
 
         });
@@ -198,6 +227,7 @@ public class Menu extends AppCompatActivity {
                 finish();
             }
         });
+
 
 
    }
