@@ -57,7 +57,7 @@
             android:textStyle="bold"
             android:background="#00000000"
             android:textColor="#82AAE3"
-            android:text="Navigate through the app"
+            android:text="Clock in and clock out"
             android:fontFamily="@font/hanken_grotesk"/>
 
         <Button
@@ -74,7 +74,7 @@
             android:fontFamily="@font/hanken_grotesk"
             android:text="Check and download
 your payslip
-" />
+"/>
 
         <Button
             android:id="@+id/guide3btn"
@@ -88,7 +88,7 @@ your payslip
             android:background="#00000000"
             android:textColor="#82AAE3"
             android:fontFamily="@font/hanken_grotesk"
-            android:text="Book and review holidays
+            android:text="Book and review my leave
 "/>
 
         <Button

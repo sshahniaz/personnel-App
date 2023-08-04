@@ -10,14 +10,14 @@
         android:id="@+id/info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textColor="@color/white"
         android:fontFamily="@font/hanken_grotesk"
         android:textAlignment="center"
         android:textFontWeight="600"
         android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
-        android:text="To replay the tutorial"/>
+        android:text="Find out more in the Help section"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -25,6 +25,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_below="@+id/info"
-        android:src="@drawable/payslip"/>
+        android:src="@drawable/help"/>
 
 </RelativeLayout>

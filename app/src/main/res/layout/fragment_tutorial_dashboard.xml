@@ -11,15 +11,14 @@
         android:id="@+id/info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textColor="@color/white"
         android:fontFamily="@font/hanken_grotesk"
         android:textAlignment="center"
         android:textFontWeight="600"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="Navigate easily through
- the app"/>
+        android:text="Clock in and out of work"/>
 
     <ImageView
         android:layout_width="wrap_content"
