@@ -9,7 +9,7 @@
     android:background="@drawable/shadow"
     android:layout_marginTop="5dp">
 
-
+<!--    android:backgroundTint="#6682AAE3"-->
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -24,15 +24,16 @@
                 android:layout_gravity="center"
                 app:cardCornerRadius="25dp"
                 android:layout_marginTop="10dp"
-                app:cardElevation="3in"
-                android:backgroundTint="#4D82AAE3">
+                app:cardElevation="0dp"
+
+                android:id="@+id/homeCard"
+                >
 
                 <ImageButton
                     android:id="@+id/homeNav"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_marginTop="5dp"
-
                     android:backgroundTint="#00212529"
                     android:src="@drawable/homenav"
 

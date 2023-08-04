@@ -1,10 +1,12 @@
 package com.example.personnel;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -13,6 +15,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +37,7 @@ public class Menu extends AppCompatActivity {
     private TextView headerText;
     private int empID;
     private String prevPage;
+    private CardView home, holiday, payslip, messages, rota;
 
 
 
@@ -51,6 +55,7 @@ public class Menu extends AppCompatActivity {
         logoutNav=(ImageButton) findViewById(R.id.logoutNav);
         backArrow=(ImageButton) findViewById(R.id.backArrow);
 
+        home=(CardView) findViewById(R.id.homeCard);
 
         //Get header
         headerText = findViewById(R.id.header_text);
@@ -80,6 +85,7 @@ public class Menu extends AppCompatActivity {
                     //for the Dashboard
                     intent.putExtra(dbHelper.employeeId,empID);
                     startActivity(intent);
+
 
                 }
                 if(prevPage.equals("rota")){
@@ -111,6 +117,10 @@ public class Menu extends AppCompatActivity {
             }
         });
         //Style buttons with if
+        if(this.equals("dashboard"))
+        {
+            home.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
+        }
 
 
 
@@ -136,7 +146,10 @@ public class Menu extends AppCompatActivity {
                 Intent intent=new Intent(Menu.this, DashBoard.class);
                 intent.putExtra(dbHelper.employeeId,empID);
                 startActivity(intent);
+
+                home.setCardBackgroundColor(Color.parseColor("#6682AAE3"));
             }
+
         });
         holidayNav.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +157,7 @@ public class Menu extends AppCompatActivity {
                 Intent intent=new Intent(Menu.this, Holiday.class);
                 intent.putExtra(dbHelper.employeeId,empID);
                 startActivity(intent);
+
             }
         });
         rotaNav.setOnClickListener(new View.OnClickListener() {
