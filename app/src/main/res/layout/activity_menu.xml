@@ -9,7 +9,7 @@
     android:background="@drawable/shadow"
     android:layout_marginTop="5dp">
 
-
+<!--    android:backgroundTint="#6682AAE3"-->
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -18,73 +18,107 @@
 
             <include layout="@layout/nav_header" />
 
+<!-- home-->
             <androidx.cardview.widget.CardView
                 android:layout_width="310dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 app:cardCornerRadius="25dp"
                 android:layout_marginTop="10dp"
-                app:cardElevation="3in"
-                android:backgroundTint="#4D82AAE3">
+                app:cardElevation="0dp"
+                android:id="@+id/homeCard"
+                >
 
                 <ImageButton
                     android:id="@+id/homeNav"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_marginTop="5dp"
-
                     android:backgroundTint="#00212529"
                     android:src="@drawable/homenav"
 
                     />
             </androidx.cardview.widget.CardView>
-
+<!-- holiday-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="310dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="25dp"
+                android:layout_marginTop="10dp"
+                app:cardElevation="0dp"
+                android:id="@+id/holidayCard"
+                >
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="5dp"
                 android:backgroundTint="#00212529"
-                android:layout_marginLeft="40dp"
                 android:src="@drawable/holidaynav"
                 android:id="@+id/holidayNav"/>
+            </androidx.cardview.widget.CardView>
 
+<!-- payslip-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="310dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="25dp"
+                android:layout_marginTop="10dp"
+                app:cardElevation="0dp"
+                android:id="@+id/payslipCard"
+                >
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="5dp"
                 android:backgroundTint="#00212529"
-                android:layout_marginLeft="40dp"
                 android:src="@drawable/payslipnav"
                 android:id="@+id/payslipNav"
                 />
+            </androidx.cardview.widget.CardView>
+<!-- rota-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="310dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="25dp"
+                android:layout_marginTop="10dp"
+                app:cardElevation="0dp"
+
+                android:id="@+id/rotaCard"
+                >
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="5dp"
                 android:backgroundTint="#00212529"
-                android:layout_marginLeft="40dp"
                 android:src="@drawable/rotanav"
                 android:id="@+id/rotaNav"/>
+            </androidx.cardview.widget.CardView>
+
+<!-- messages-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="310dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="25dp"
+                android:layout_marginTop="10dp"
+                app:cardElevation="0dp"
+                android:id="@+id/messagesCard"
+                >
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="5dp"
                 android:backgroundTint="#00212529"
-                android:layout_marginLeft="40dp"
                 android:src="@drawable/messagesnav"
                 android:id="@+id/messagesNav"/>
+            </androidx.cardview.widget.CardView>
 
-<!--            <ImageButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                android:backgroundTint="#00212529"-->
-<!--                android:layout_marginLeft="40dp"-->
-<!--                android:src="@drawable/helpnav"-->
-<!--                android:id="@+id/helpNav"-->
-<!--                />-->
+
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
