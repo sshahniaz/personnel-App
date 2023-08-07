@@ -80,7 +80,7 @@ public class DashBoard extends AppCompatActivity {
             finish();
 
         }
-        Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_SHORT).show();
 
         clockBtn.setOnClickListener(new View.OnClickListener() {
             @Override

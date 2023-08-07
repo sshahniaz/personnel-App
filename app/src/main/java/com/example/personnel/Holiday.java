@@ -72,7 +72,7 @@ public class Holiday extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             empID = extras.getInt(holDB.employeeId);
-            Toast.makeText(this,"Empid: "+empID,Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,"Empid: "+empID,Toast.LENGTH_SHORT).show();
         }
         //Checks if the empID is null or 0 and searches preferences for the correct ID;
         if(empID==0){
@@ -96,7 +96,7 @@ public class Holiday extends AppCompatActivity {
 
         holidayCardList.setAdapter(adapter);
         holidayCardList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        adapter.notifyDataSetChanged();
+//        adapter.notifyDataSetChanged();
         //Book Holiday
 
         //Set Current Date on start

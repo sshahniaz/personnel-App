@@ -66,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
                     if((userName.getText().toString().trim()).equals(cursor.getString(1))){
                         //Toast for now will check for password hash later
-                        Toast.makeText(getApplicationContext(),"Username VAlid empID: "+cursor.getInt(3),Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(),"Username VAlid empID: "+cursor.getInt(3),Toast.LENGTH_SHORT).show();
                         if((pswdInput.getText().toString().trim()).equals(cursor.getString(2))){
 
-                            Toast.makeText(getApplicationContext(),"Password VAlid empID: "+cursor.getInt(3),Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getApplicationContext(),"Password VAlid empID: "+cursor.getInt(3),Toast.LENGTH_SHORT).show();
                             //Make SharedPref Editor Object for editing.
                             SharedPreferences.Editor editor = pref.edit();
                             editor.putBoolean(LOGIN_PREF_CHECK_KEY, true);
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                     }else{
-                        Toast.makeText(getApplicationContext(),"Username Invalid empID: "+cursor.getInt(3),Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(),"Username Invalid empID: "+cursor.getInt(3),Toast.LENGTH_SHORT).show();
                     }
                     }
                 }
