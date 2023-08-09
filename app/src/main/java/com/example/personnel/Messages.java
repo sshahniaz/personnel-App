@@ -215,13 +215,13 @@ public class Messages extends AppCompatActivity {
 
 
 
-       boolean success = dbHelper.setMessages(msgList);
-//
-     if (success) {
-           Toast.makeText(Messages.this, "All rows inserted successfully", Toast.LENGTH_SHORT).show();
-       } else {
-           Toast.makeText(Messages.this, "Failed to insert messages", Toast.LENGTH_SHORT).show();
-       }
+//       boolean success = dbHelper.setMessages(msgList);
+////
+//     if (success) {
+//           Toast.makeText(Messages.this, "All rows inserted successfully", Toast.LENGTH_SHORT).show();
+//       } else {
+//           Toast.makeText(Messages.this, "Failed to insert messages", Toast.LENGTH_SHORT).show();
+//       }
 
 
 //return all messages from database
