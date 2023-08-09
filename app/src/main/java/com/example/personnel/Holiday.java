@@ -42,7 +42,7 @@ public class Holiday extends AppCompatActivity {
     RecyclerView holidayCardList;
 
     MaterialButtonToggleGroup holidayBtnGroup;
-    private String selLeaveType;
+    private String selLeaveType,holidayReasonTxt;
     CardView datePickStartDate, datePickEndDate;
     DatePickerDialog datePickerDialog;
     Date selectedDate;
@@ -245,6 +245,7 @@ public class Holiday extends AppCompatActivity {
 
         holidayReason = findViewById(R.id.holiday_reason);
         bookBtn = findViewById(R.id.holiday_book_btn);
+        holidayReasonTxt = holidayReason.toString().trim();
 
         bookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -253,7 +254,7 @@ public class Holiday extends AppCompatActivity {
                 DBHelper leaveDB = new DBHelper(getApplicationContext());
                 SQLiteDatabase db = leaveDB.getWritableDatabase();
 
-                if(selLeaveType!=null && holidayReason!=null){
+                if(((selLeaveType)!=null && holidayReasonTxt!=null)){
                     //Leave status is int so 0 == Pending, 1 == Approved, -1 == Rejected;
                     ContentValues values = new ContentValues();
                     values.put(leaveDB.employeeId, empID);
