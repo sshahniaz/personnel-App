@@ -245,6 +245,7 @@ public class Holiday extends AppCompatActivity {
 
         holidayReason = findViewById(R.id.holiday_reason);
         bookBtn = findViewById(R.id.holiday_book_btn);
+        //requires intermediary for string checking operations.
         holidayReasonTxt = holidayReason.toString().trim();
 
         bookBtn.setOnClickListener(new View.OnClickListener() {
