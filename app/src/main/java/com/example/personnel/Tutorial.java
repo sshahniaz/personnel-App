@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +36,13 @@ public class Tutorial extends AppCompatActivity {
         // Check if the tutorial has been shown before
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         boolean tutorialShown = preferences.getBoolean(TUTORIAL_SHOWN_KEY, false);
+
+        //Init DB
+        DBHelper initDB = new DBHelper(this);
+        SQLiteDatabase db = initDB.getReadableDatabase();
+        db.close();
+        initDB.close();
+
 
         if (tutorialShown) {
             // Tutorial has been shown before, go to the main activity or home screen
