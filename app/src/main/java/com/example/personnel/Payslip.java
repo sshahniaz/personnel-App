@@ -5,7 +5,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -24,8 +26,11 @@ public class Payslip extends AppCompatActivity {
     private ListView listView;
     private ArrayList<String> dataList;
     private static final int REQUEST_WRITE_EXTERNAL_STORAGE = 1;
-    private ImageButton menuBtn;
+    private ImageButton menuBtn,info;
     public final String CURRENT_PAGE_KEY = "currentPage";
+    //Adding the SharedPreferances Keysso that the ID is passed around
+    private static final String LOGIN_PREF = "login_prefs";
+    private static final String LOGIN_PREF_UID_KEY= "uid_key";
     private int empID;
 
     @Override
@@ -54,9 +59,19 @@ public class Payslip extends AppCompatActivity {
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences(LOGIN_PREF, Context.MODE_PRIVATE);
+                empID = preferences.getInt(LOGIN_PREF_UID_KEY,0);
                 Intent intent = new Intent(Payslip.this, Menu.class);
                 intent.putExtra(CURRENT_PAGE_KEY, "payslip");
                 intent.putExtra(db.employeeId, empID);
+                startActivity(intent);
+            }
+        });
+        info=findViewById(R.id.infoBtn);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Payslip.this, Help.class);
                 startActivity(intent);
             }
         });

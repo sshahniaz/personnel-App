@@ -11,15 +11,14 @@
         android:id="@+id/info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textColor="@color/white"
         android:fontFamily="@font/hanken_grotesk"
         android:textAlignment="center"
         android:textFontWeight="600"
         android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
-        android:text="Book your Holidays
-In four clicks"/>
+        android:text="Book and review your Holidays"/>
 
     <ImageView
         android:layout_width="wrap_content"

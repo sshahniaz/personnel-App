@@ -22,8 +22,58 @@
         android:id="@+id/video"
         android:layout_below="@+id/title"
         android:layout_width="wrap_content"
-        android:layout_height="600dp"
+        android:layout_height="400dp"
         android:src="@drawable/rota"/>
+
+    <LinearLayout
+        android:id="@+id/information"
+        android:layout_below="@+id/video"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="To check your rota:"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="   - Go to the Rota page." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hanken_grotesk"
+            android:layout_marginTop="5dp"
+            android:text="   - Your current rota will always be"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="     displayed first inside the blue card."/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hanken_grotesk"
+            android:layout_marginTop="5dp"
+            android:text="   - The ones after are for the following"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hanken_grotesk"
+            android:text="     weeks."/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/backGuide4"
@@ -32,8 +82,7 @@
         android:text="Back"
         android:backgroundTint="@color/black"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/video"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/information"
         android:layout_marginBottom="10dp"/>
 
 </RelativeLayout>

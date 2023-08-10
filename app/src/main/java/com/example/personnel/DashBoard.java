@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -18,6 +19,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -49,6 +51,7 @@ public class DashBoard extends AppCompatActivity {
     private static final String LOGIN_PREF = "login_prefs";
     private static final String LOGIN_PREF_UID_KEY= "uid_key";
     private Cursor cursor;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +80,7 @@ public class DashBoard extends AppCompatActivity {
             finish();
 
         }
-        Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(DashBoard.this, "Employee ID = " + empID, Toast.LENGTH_SHORT).show();
 
         clockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,6 +189,8 @@ public class DashBoard extends AppCompatActivity {
         });
 
         //Menu Btn
+
+
         menuBtn = findViewById(R.id.menu_btn);
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,6 +199,8 @@ public class DashBoard extends AppCompatActivity {
                 intent.putExtra(CURRENT_PAGE_KEY, "dashBoard");
                 intent.putExtra(dbHelper.employeeId, empID);
                 startActivity(intent);
+
+
             }
         });
 

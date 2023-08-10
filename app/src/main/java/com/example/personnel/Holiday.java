@@ -42,7 +42,7 @@ public class Holiday extends AppCompatActivity {
     RecyclerView holidayCardList;
 
     MaterialButtonToggleGroup holidayBtnGroup;
-    private String selLeaveType;
+    private String selLeaveType,holidayReasonTxt;
     CardView datePickStartDate, datePickEndDate;
     DatePickerDialog datePickerDialog;
     Date selectedDate;
@@ -50,7 +50,7 @@ public class Holiday extends AppCompatActivity {
     EditText holidayReason;
     Button bookBtn;
     private int empID;
-    ImageButton menuBtn;
+    ImageButton menuBtn,info;
     public final String CURRENT_PAGE_KEY = "currentPage";
 
 
@@ -72,7 +72,7 @@ public class Holiday extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             empID = extras.getInt(holDB.employeeId);
-            Toast.makeText(this,"Empid: "+empID,Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,"Empid: "+empID,Toast.LENGTH_SHORT).show();
         }
         //Checks if the empID is null or 0 and searches preferences for the correct ID;
         if(empID==0){
@@ -96,7 +96,7 @@ public class Holiday extends AppCompatActivity {
 
         holidayCardList.setAdapter(adapter);
         holidayCardList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        adapter.notifyDataSetChanged();
+//        adapter.notifyDataSetChanged();
         //Book Holiday
 
         //Set Current Date on start
@@ -245,6 +245,8 @@ public class Holiday extends AppCompatActivity {
 
         holidayReason = findViewById(R.id.holiday_reason);
         bookBtn = findViewById(R.id.holiday_book_btn);
+        //requires intermediary for string checking operations.
+        holidayReasonTxt = holidayReason.toString().trim();
 
         bookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -253,7 +255,7 @@ public class Holiday extends AppCompatActivity {
                 DBHelper leaveDB = new DBHelper(getApplicationContext());
                 SQLiteDatabase db = leaveDB.getWritableDatabase();
 
-                if(selLeaveType!=null && holidayReason!=null){
+                if(((selLeaveType)!=null && holidayReasonTxt!=null)){
                     //Leave status is int so 0 == Pending, 1 == Approved, -1 == Rejected;
                     ContentValues values = new ContentValues();
                     values.put(leaveDB.employeeId, empID);
@@ -294,6 +296,14 @@ public class Holiday extends AppCompatActivity {
             }
         });
 
+        info=findViewById(R.id.infoBtn);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Holiday.this, Help.class);
+                startActivity(intent);
+            }
+        });
 
 
 

@@ -18,7 +18,7 @@ public class Rota extends AppCompatActivity {
     RecyclerView recyclerView, recyclerView2,recyclerView3,recyclerView4;
     Rota_adapter week1Adapter, week2Adapter, week3Adapter, week4Adapter;
     List<Rota_Model> rotaList, rotaList2, rotaList3, rotaList4;
-    ImageButton menuBtn;
+    ImageButton menuBtn, info;
     private static final String LOGIN_PREF = "login_prefs";
     private static final String LOGIN_PREF_UID_KEY= "uid_key";
     public final String CURRENT_PAGE_KEY = "currentPage";
@@ -55,6 +55,14 @@ public class Rota extends AppCompatActivity {
                 Intent intent = new Intent(Rota.this, Menu.class);
                 intent.putExtra(CURRENT_PAGE_KEY, "rota");
                 intent.putExtra(dbHelper2.employeeId, empID);
+                startActivity(intent);
+            }
+        });
+        info=findViewById(R.id.infoBtn);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Rota.this, Help.class);
                 startActivity(intent);
             }
         });
