@@ -247,7 +247,7 @@ public class Holiday extends AppCompatActivity {
         holidayReason = findViewById(R.id.holiday_reason);
         bookBtn = findViewById(R.id.holiday_book_btn);
         //requires intermediary for string checking operations.
-        holidayReasonTxt = holidayReason.toString().trim();
+        holidayReasonTxt = holidayReason.getText().toString();
 
         bookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -255,8 +255,11 @@ public class Holiday extends AppCompatActivity {
                 //Booking here
                 DBHelper leaveDB = new DBHelper(getApplicationContext());
                 SQLiteDatabase db = leaveDB.getWritableDatabase();
+                    //for condition testing
+//                Toast.makeText(getApplicationContext(),selLeaveType +"  | "+ holidayReasonTxt.isEmpty(), Toast.LENGTH_SHORT).show();
 
-                if(((selLeaveType)!=null && holidayReasonTxt!=null)){
+                if(selLeaveType!=null && !holidayReasonTxt.isEmpty()){
+
                     //Leave status is int so 0 == Pending, 1 == Approved, -1 == Rejected;
                     ContentValues values = new ContentValues();
                     values.put(leaveDB.employeeId, empID);
