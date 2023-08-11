@@ -80,7 +80,7 @@ public class Holiday extends AppCompatActivity {
             empID = preferences.getInt(LOGIN_PREF_UID_KEY,0);
         }
 
-
+        //getting db values and putting it in a lost of objects;
         Cursor cursor = listDB.rawQuery("select * from "+holDB.leaveTable+" where "+holDB.employeeId+"=?;",new String[]{String.valueOf(empID)});
         if(cursor.moveToLast()){
             do{
@@ -192,6 +192,7 @@ public class Holiday extends AppCompatActivity {
                 datePickerDialog = new DatePickerDialog(Holiday.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        //Formatting to a desired date format below from the datepicker.
                         SimpleDateFormat req = new SimpleDateFormat("dd-MM-yyyy");
                         String dateSelected = dayOfMonth+"-"+month+"-"+year;
 
@@ -222,7 +223,7 @@ public class Holiday extends AppCompatActivity {
         holidayBtnGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
             @Override
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
-
+                // Gets the leace type from the ID of the checked option.
                 if(isChecked){
                     if(checkedId==R.id.holiday_btn_holiday){
                         selLeaveType = "Holiday";
@@ -265,7 +266,7 @@ public class Holiday extends AppCompatActivity {
                     values.put(leaveDB.reason,holidayReason.getText().toString());
                     values.put(leaveDB.status,0);
 
-                    //Test
+                    //Values insert here and also gives corresponding result messages.
                     long result = db.insert(leaveDB.leaveTable,null,values);
                     if (result == -1){
                         Toast.makeText(getApplicationContext(),"Failed", Toast.LENGTH_SHORT).show();
@@ -277,6 +278,7 @@ public class Holiday extends AppCompatActivity {
                     db.close();
 
                 }else{
+                    //shows errors when data is not present
                     bookBtn.setError("Please Select Holiday Type and Reason");
                     holidayReason.setError("Reason cannot be empty");
                 }
